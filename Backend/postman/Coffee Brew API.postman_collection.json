@@ -1,0 +1,1843 @@
+{
+	"info": {
+		"_postman_id": "f2bc7fc0-7a8d-4b16-997a-043fbd184191",
+		"name": "Coffee Brew API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Coffee Beans",
+			"item": [
+				{
+					"name": "Get Coffee Beans",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/beans/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								""
+							]
+						},
+						"description": "The API route retrieves all the stored coffee beans"
+					},
+					"response": [
+						{
+							"name": "Get Coffee Beans",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/beans/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1716"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b4-14c08VPE8EO6DM4vG5Gj1Zpkn1I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:18:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"62613c857a9198d8b0c1d48c\",\n        \"name\": \"Strawberry Decaf\",\n        \"brand\": \"SAN MARCO COFFEE INC\",\n        \"roastProfile\": \"Medium\",\n        \"roastType\": \"Blend\",\n        \"price\": 300,\n        \"countryOfOrigin\": \"USA\",\n        \"description\": \"Full flavor strawberries make up this favorite!\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"62613c857a9198d8b0c1d48d\",\n        \"name\": \"Private Reserve Espresso\",\n        \"brand\": \"COMMUNITY COFFEE CO LLC\",\n        \"roastProfile\": \"Dark\",\n        \"roastType\": \"Blend\",\n        \"price\": 500,\n        \"countryOfOrigin\": \"USA\",\n        \"description\": \"The rich, caramelized flavor of our signature Espresso is expertly blended and roasted extra dark to create a full-bodied coffee taste that can be enjoyed straight or in your favorite drink. Made from 100% specialty-grade Arabica coffee.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"62613c857a9198d8b0c1d48e\",\n        \"name\": \"Guatemala Huehuetenango\",\n        \"brand\": \"FABLE COFFEE\",\n        \"roastProfile\": \"Medium\",\n        \"roastType\": \"Blend\",\n        \"price\": 300,\n        \"countryOfOrigin\": \"Guatemala\",\n        \"description\": \"Personality: “One more cup of coffee and then I’ll go… Tasting Notes: Baker’s Chocolate, Caramel, Peach Brew Method: Very versatile coffee. All drip methods, cold brew, & great as a single origin espresso.\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"62613c857a9198d8b0c1d48f\",\n        \"name\": \"Aida Batlle Kilimanjaro\",\n        \"brand\": \"COFFEE LABS ROASTERS\",\n        \"roastProfile\": \"Medium\",\n        \"roastType\": \"Single Origin\",\n        \"price\": 250,\n        \"countryOfOrigin\": \"USA\",\n        \"description\": \"Grown at the Santa Ana Volcano in El Salvador, by renowned coffee producer Aida Batlle. In 2003, Aida Batlle took the entire specialty world by surprise. The Kilimanjaro (named for East Africa’s highest peak) not only won El Salvador’s Cup of Excellence Award; but it sold for a world record–shattering $14.06 per pound. More than a decade later, and Aida Batlle’s coffees continue to astound.\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Coffee Bean",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Organic Espresso\",\n    \"brand\": \"CAFF D'ARTE\",\n    \"roastProfile\": \"Medium\",\n    \"roastType\": \"Blend\",\n    \"price\": 600,\n    \"countryOfOrigin\": \"United States of America\",\n    \"description\": \"With certified organic beans chosen from the finest varietals, the Organico blend is crafted to taste great as espresso or drip coffee. Roasted medium-dark for a bright, natural earthy flavor profile that is smooth and tasty.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/beans/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								""
+							]
+						},
+						"description": "This API route is used to add a new coffee bean to the database."
+					},
+					"response": [
+						{
+							"name": "Create Coffee Bean",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Organic Espresso\",\n    \"brand\": \"CAFF D'ARTE\",\n    \"roastProfile\": \"Medium\",\n    \"roastType\": \"Blend\",\n    \"price\": 600,\n    \"countryOfOrigin\": \"United States of America\",\n    \"description\": \"With certified organic beans chosen from the finest varietals, the Organico blend is crafted to taste great as espresso or drip coffee. Roasted medium-dark for a bright, natural earthy flavor profile that is smooth and tasty.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/beans/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "486"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e6-kB1kuG/uOx3Um/HiL5B/6HUOvDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:23:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Coffee bean added successfully.\",\n    \"bean\": {\n        \"name\": \"Organic Espresso\",\n        \"brand\": \"CAFF D'ARTE\",\n        \"roastProfile\": \"Medium\",\n        \"roastType\": \"Blend\",\n        \"price\": 600,\n        \"countryOfOrigin\": \"United States of America\",\n        \"description\": \"With certified organic beans chosen from the finest varietals, the Organico blend is crafted to taste great as espresso or drip coffee. Roasted medium-dark for a bright, natural earthy flavor profile that is smooth and tasty.\",\n        \"_id\": \"6261cb416f20d6c84ec5cff8\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Coffee Bean",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\" : \"400\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/beans/6261cb416f20d6c84ec5cff8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								"6261cb416f20d6c84ec5cff8"
+							]
+						},
+						"description": "This API route is used to update information of a Coffee bean given it's ID."
+					},
+					"response": [
+						{
+							"name": "Update Coffee Bean",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"price\" : \"400\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/beans/6261cb416f20d6c84ec5cff8",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										"6261cb416f20d6c84ec5cff8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-j+3TyI/jzycICCDTxV9wrNuHXig\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:24:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Coffee Bean of given ID (6261cb416f20d6c84ec5cff8) updated successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Coffee Bean",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/beans/6261cb416f20d6c84ec5cff8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								"6261cb416f20d6c84ec5cff8"
+							]
+						},
+						"description": "This API route deletes a coffee bean based on its ID in the database"
+					},
+					"response": [
+						{
+							"name": "DELETE Coffee Bean",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/beans/6261cb416f20d6c84ec5cff8",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										"6261cb416f20d6c84ec5cff8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-BIcnMRgFhOcy4FwXhC5GduHCcBA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:31:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Coffee Bean of given ID (6261cb416f20d6c84ec5cff8) deleted successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Coffee Beans By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/beans/625a6e7706b1e368d3b0caa5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								"625a6e7706b1e368d3b0caa5"
+							]
+						},
+						"description": "This API route is used to retrieve an coffee bean by it's ID in the database"
+					},
+					"response": [
+						{
+							"name": "Get Coffee Beans By Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/beans/625a6e7706b1e368d3b0caa5",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										"625a6e7706b1e368d3b0caa5"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-oN6HuOpRWVDLI2kHFzmqa+xfM1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Apr 2022 07:27:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Coffee Bean of given ID (625a6e7706b1e368d3b0caa5) not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Populate Database",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/beans/populate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"beans",
+								"populate"
+							]
+						},
+						"description": "This API route enables one to populate a database with multiple coffee bean data."
+					},
+					"response": [
+						{
+							"name": "Populate Database",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/beans/populate",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"beans",
+										"populate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1351"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"547-wLOtL78lf9ZC4dv8HPWyJSlggJc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Apr 2022 18:45:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Added all coffee beans successfully.\",\n    \"beans\": [\n        {\n            \"name\": \"Arabica\",\n            \"brand\": \"Evergood\",\n            \"roastProfile\": \"Medium\",\n            \"roastType\": \"Blend\",\n            \"price\": 300,\n            \"countryOfOrigin\": \"Guatemala\",\n            \"description\": \"A carefully selected blend of 100% Arabica beans composes the distinctive taste of Evergood that has made it Norway's most preferred coffee.\",\n            \"_id\": \"6259bd3d4fe36b7243c83c1f\",\n            \"__v\": 0\n        },\n        {\n            \"name\": \"Arabica\",\n            \"brand\": \"Java Estate\",\n            \"roastProfile\": \"Medium\",\n            \"roastType\": \"Single Origin\",\n            \"price\": 200,\n            \"countryOfOrigin\": \"Indonesia\",\n            \"description\": \"Java Estate is grown on the Blawan Estate in Indonesia and is full bodied with medium aroma and low acidity. Excellent after dinner coffee.\",\n            \"_id\": \"6259bd3d4fe36b7243c83c20\",\n            \"__v\": 0\n        },\n        {\n            \"name\": \"Arabica\",\n            \"brand\": \"Java Estate\",\n            \"roastProfile\": \"Medium\",\n            \"roastType\": \"Blend\",\n            \"price\": 100,\n            \"countryOfOrigin\": \"Indonesia\",\n            \"description\": \"Java Estate is grown on the Blawan Estate in Indonesia and is full bodied with medium aroma and low acidity. Excellent after dinner coffee.\",\n            \"_id\": \"6259bd3d4fe36b7243c83c21\",\n            \"__v\": 0\n        },\n        {\n            \"name\": \"Arabica\",\n            \"brand\": \"Holiday Peaberrye\",\n            \"roastProfile\": \"Medium\",\n            \"roastType\": \"Blend\",\n            \"price\": 250,\n            \"countryOfOrigin\": \"Kenya\",\n            \"description\": \"Delicately sweet and subtle. Flavor simplifies but lingers in a resonantly dry finish. This is a mixture of Medium and Medium/Dark Roasted.\",\n            \"_id\": \"6259bd3d4fe36b7243c83c22\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Brew",
+			"item": [
+				{
+					"name": "Create Brew",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"coffeeBeanId\": \"62613c857a9198d8b0c1d48e\",\n    \"grindingSettings\": 7,    \n    \"litresOfWater\": 2.2,\n    \"gramsOfCoffee\": 200,\n    \"userVotes\": [\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa54\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa57\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5a\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5b\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5c\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/brews/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								""
+							]
+						},
+						"description": "This API route is used to create a new coffee brew based on existing coffee beans. It also provisions the ability to attach user votes /ratings"
+					},
+					"response": [
+						{
+							"name": "Create Brew",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"coffeeBeanId\": \"62613c857a9198d8b0c1d48e\",\n    \"grindingSettings\": 7,    \n    \"litresOfWater\": 2.2,\n    \"gramsOfCoffee\": 200,\n    \"userVotes\": [\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa54\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa57\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5a\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5b\"\n        },\n        {\n            \"userId\":\"6259bf0cadb3d79f1223fa5c\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/brews/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "559"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22f-oD8Rko/hxvy4JL/UiH9s96feJwk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 14:26:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Brew added successfully\",\n    \"brew\": {\n        \"coffeeBeanId\": \"62613c857a9198d8b0c1d48e\",\n        \"grindingSettings\": 7,\n        \"litresOfWater\": 2.2,\n        \"gramsOfCoffee\": 200,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa54\",\n                \"_id\": \"626169b2876a6be9707c34e8\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa57\",\n                \"_id\": \"626169b2876a6be9707c34e9\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5a\",\n                \"_id\": \"626169b2876a6be9707c34ea\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5b\",\n                \"_id\": \"626169b2876a6be9707c34eb\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5c\",\n                \"_id\": \"626169b2876a6be9707c34ec\"\n            }\n        ],\n        \"_id\": \"626169b2876a6be9707c34e7\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Brews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/brews",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews"
+							]
+						},
+						"description": "This API route enables us to retrieve all coffee brews in the database"
+					},
+					"response": [
+						{
+							"name": "Get Brews",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/brews",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1653"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"675-VJTsnve79VM6Tfh8bL4cFkU8zfs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 07:06:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6259c0948fe760aff062a8d6\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c1f\",\n        \"grindingSettings\": 1,\n        \"litresOfWater\": 0.2,\n        \"gramsOfCoffee\": 200,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa54\",\n                \"_id\": \"6259c0948fe760aff062a8d7\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa55\",\n                \"_id\": \"6259c0948fe760aff062a8d8\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259c1878e7ca1262e8b60cd\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c1f\",\n        \"grindingSettings\": 3,\n        \"litresOfWater\": 1.1,\n        \"gramsOfCoffee\": 300,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa56\",\n                \"_id\": \"6259c1878e7ca1262e8b60ce\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259c1f28e7ca1262e8b60d1\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c1f\",\n        \"grindingSettings\": 1,\n        \"litresOfWater\": 2.2,\n        \"gramsOfCoffee\": 100,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa57\",\n                \"_id\": \"6259c1f28e7ca1262e8b60d2\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa58\",\n                \"_id\": \"6259c1f28e7ca1262e8b60d3\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa59\",\n                \"_id\": \"6259c1f28e7ca1262e8b60d4\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259c25b8e7ca1262e8b60d7\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c20\",\n        \"grindingSettings\": 5,\n        \"litresOfWater\": 2.2,\n        \"gramsOfCoffee\": 150,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5a\",\n                \"_id\": \"6259c25b8e7ca1262e8b60d8\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5b\",\n                \"_id\": \"6259c25b8e7ca1262e8b60d9\"\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"625e5f44566e0c98db99eba3\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c21\",\n        \"grindingSettings\": 7,\n        \"litresOfWater\": 2.2,\n        \"gramsOfCoffee\": 300,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5c\",\n                \"_id\": \"625e5f44566e0c98db99eba4\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5d\",\n                \"_id\": \"625e5f44566e0c98db99eba5\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5e\",\n                \"_id\": \"625e5f44566e0c98db99eba6\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5f\",\n                \"_id\": \"625e5f44566e0c98db99eba7\"\n            }\n        ],\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Brew by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"coffeeBeanId\": \"6238ce99999cf35e2b6d1168\",\n    \"grindingSettings\": 4,\n    \"litresOfWater\" : 2.2,\n    \"gramsOfCoffee\" : 100,\n    \"userVotes\" : [\n        {\n            \"userId\" : \"6238c4dfe3961e9296ac6d60\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/brews/6259c30b8e7ca1262e8b60dc",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								"6259c30b8e7ca1262e8b60dc"
+							]
+						},
+						"description": "This API route allows us to retrieve a coffee brew based on it's ID in the database."
+					},
+					"response": [
+						{
+							"name": "Get Brew by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"coffeeBeanId\": \"6238ce99999cf35e2b6d1168\",\n    \"grindingSettings\": 4,\n    \"litresOfWater\" : 2.2,\n    \"gramsOfCoffee\" : 100,\n    \"userVotes\" : [\n        {\n            \"userId\" : \"6238c4dfe3961e9296ac6d60\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/brews/6259c30b8e7ca1262e8b60dc",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										"6259c30b8e7ca1262e8b60dc"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "445"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bd-p+/CTHVZxKetCIHa2Ir4sPh8Rao\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 07:04:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6259c30b8e7ca1262e8b60dc\",\n        \"coffeeBeanId\": \"6259bd3d4fe36b7243c83c21\",\n        \"grindingSettings\": 7,\n        \"litresOfWater\": 2.2,\n        \"gramsOfCoffee\": 300,\n        \"userVotes\": [\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5c\",\n                \"_id\": \"6259c30b8e7ca1262e8b60dd\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5d\",\n                \"_id\": \"6259c30b8e7ca1262e8b60de\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5e\",\n                \"_id\": \"6259c30b8e7ca1262e8b60df\"\n            },\n            {\n                \"userId\": \"6259bf0cadb3d79f1223fa5f\",\n                \"_id\": \"6259c30b8e7ca1262e8b60e0\"\n            }\n        ],\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "UPDATE Brew",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"litresOfWater\": 1.1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/brews/6259c25b8e7ca1262e8b60d7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								"6259c25b8e7ca1262e8b60d7"
+							]
+						},
+						"description": "This API route allows us to update information about a particular coffee brew based on it's ID in the database"
+					},
+					"response": [
+						{
+							"name": "UPDATE Brew",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"litresOfWater\": 1.1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/brews/6259c25b8e7ca1262e8b60d7",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										"6259c25b8e7ca1262e8b60d7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-z5PFi3i2JA7lkkWtCmaBwq7s5+g\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:30:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Brew updated successfully.\",\n    \"brew\": {\n        \"acknowledged\": true,\n        \"modifiedCount\": 0,\n        \"upsertedId\": null,\n        \"upsertedCount\": 0,\n        \"matchedCount\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Brew",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/brews/6259c30b8e7ca1262e8b60dc?",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								"6259c30b8e7ca1262e8b60dc"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						},
+						"description": "This API route allows us to delete a particular Coffee brew based on it's ID in the database"
+					},
+					"response": [
+						{
+							"name": "DELETE Brew",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/brews/6259c30b8e7ca1262e8b60dc?",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										"6259c30b8e7ca1262e8b60dc"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-C9NvoCywv0zNhf9QjVjZ3Bg9GUU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:26:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Brew deleted successfully\",\n    \"brew\": {\n        \"acknowledged\": true,\n        \"deletedCount\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Query Top 5 grinding levels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/brews/levels?water=2.2&bean=Guatemala Huehuetenango",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								"levels"
+							],
+							"query": [
+								{
+									"key": "water",
+									"value": "2.2"
+								},
+								{
+									"key": "bean",
+									"value": "Guatemala Huehuetenango"
+								}
+							]
+						},
+						"description": "This API route allows a user to retrieve the Top 5 grinding levels of a particular coffee bean based on the origin and amount of water to prepare it."
+					},
+					"response": [
+						{
+							"name": "Query Top 5 grinding levels",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/brews/levels?water=2.2&bean=Guatemala Huehuetenango",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										"levels"
+									],
+									"query": [
+										{
+											"key": "water",
+											"value": "2.2"
+										},
+										{
+											"key": "bean",
+											"value": "Guatemala Huehuetenango"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1216"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c0-xnwLTAMdSu/JLb15pPxXoYaY2uQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:26:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n        <link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">\n        <style>\r\n    body{\r\n        font-family: 'Poppins', sans-serif;\r\n        text-align:center;\r\n    }\r\n\r\n    li{\r\n        font-size: 30px; \r\n        text-align:center; \r\n        list-style: none;\r\n    }\r\n\r\n    span{\r\n        font-size: 20px;\r\n        \r\n    }\r\n\r\n    li{\r\n        background-color: rgba(0, 112, 112, 0.363);\r\n        width:50%;\r\n        border-radius: 7px;\r\n        margin: auto;\r\n        margin-top: 10px;\r\n    }\r\n</style>\n        <title>Top Grinding Levels</title>\n    </head>\n    <body>\n        <h1>Top grinding levels</h1>\n        <ul>\n            <li>7\n                <span>   &rarr; with 5 user-votes</span>\n            </li>\n            <li>5\n                <span>   &rarr; with 4 user-votes</span>\n            </li>\n            <li>3\n                <span>   &rarr; with 2 user-votes</span>\n            </li>\n        </ul>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "Vote Brew",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/brews/vote/62616788876a6be9707c34bb",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"brews",
+								"vote",
+								"62616788876a6be9707c34bb"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vote Brew",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFhZTEwNzA5ZTEyNzM4YzI0NzU3MyIsImVtYWlsIjoicm9sYW5kQHNhbmcuY29tIiwiaWF0IjoxNjUwNTY4NzIwLCJleHAiOjE2NTA2NTUxMjB9.2QAss5M246xlusARyAddWwnfGCEq4uRJVukQ6Xllweo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/brews/vote/62616788876a6be9707c34bb",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"brews",
+										"vote",
+										"62616788876a6be9707c34bb"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-kyfDn/cYpfzYpZcSNIL727l31uY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:28:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User vote successfully recorded.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"kal@coffee.com\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						},
+						"description": "This API route is used to create a new user in the database."
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"kal@coffee.com\",\n    \"password\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-WhahVIGHxlJ3r6nQGeGHwQ+sRes\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 07:08:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User added successfully.\",\n    \"user\": {\n        \"email\": \"kal@coffee.com\",\n        \"password\": \"12345\",\n        \"_id\": \"625e5fe4566e0c98db99ebab\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						},
+						"description": "This API route enables is retrieve all users in the database"
+					},
+					"response": [
+						{
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2053"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"805-J9faCGJKwq+nETXhLvq5ahkstog\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 07:08:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa54\",\n        \"email\": \"ejeens0@sohu.com\",\n        \"password\": \"15KdgCbuXif\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa55\",\n        \"email\": \"dblazhevich1@latimes.com\",\n        \"password\": \"YvYkvl\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa56\",\n        \"email\": \"shinkley2@disqus.com\",\n        \"password\": \"SSJIrwitO\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa57\",\n        \"email\": \"areuss3@chron.com\",\n        \"password\": \"oaJIdoUVul\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa58\",\n        \"email\": \"jcoghlin4@hostgator.com\",\n        \"password\": \"zrkrZpzt\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa59\",\n        \"email\": \"hbaythorp5@jiathis.com\",\n        \"password\": \"Oq6z9y5qVH\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5a\",\n        \"email\": \"clermit6@comcast.net\",\n        \"password\": \"96X4Mw3IbGS\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5b\",\n        \"email\": \"bhaton7@devhub.com\",\n        \"password\": \"nbthCiUusvd\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5c\",\n        \"email\": \"tmacardle8@webnode.com\",\n        \"password\": \"ODYipZL\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5d\",\n        \"email\": \"lmotte9@businessweek.com\",\n        \"password\": \"yKGsRkH\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5e\",\n        \"email\": \"fpeetera@bbb.org\",\n        \"password\": \"5J59jVqB\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa5f\",\n        \"email\": \"ecoatsworthb@squidoo.com\",\n        \"password\": \"jrudVTu0IMk\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa60\",\n        \"email\": \"taspreyc@uol.com.br\",\n        \"password\": \"qZgIg1g\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa61\",\n        \"email\": \"dkirked@bing.com\",\n        \"password\": \"z2DGZC\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa62\",\n        \"email\": \"cblaxtere@statcounter.com\",\n        \"password\": \"cPvAtcYbN\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa63\",\n        \"email\": \"cdominecf@themeforest.net\",\n        \"password\": \"fMg3bgHgZAA\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa64\",\n        \"email\": \"ldimberlineg@cocolog-nifty.com\",\n        \"password\": \"x2zIPX\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa65\",\n        \"email\": \"fvarrowh@smh.com.au\",\n        \"password\": \"SlJe8o9X5fAM\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa66\",\n        \"email\": \"ofranciottii@angelfire.com\",\n        \"password\": \"p99AGcq96\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6259bf0cadb3d79f1223fa67\",\n        \"email\": \"fflattmanj@taobao.com\",\n        \"password\": \"Wba4GFoLH\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"625e5fe4566e0c98db99ebab\",\n        \"email\": \"kal@coffee.com\",\n        \"password\": \"12345\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/users/625a73e3d678f4cdf7ad6725",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"625a73e3d678f4cdf7ad6725"
+							]
+						},
+						"description": "This API route is used to delete a user from the database based on their ID"
+					},
+					"response": [
+						{
+							"name": "Delete a User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/users/625a73e3d678f4cdf7ad6725",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"625a73e3d678f4cdf7ad6725"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-3ERdFdaChvJZj8zowVxbOB+vB0s\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Apr 2022 07:46:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted successfully\",\n    \"user\": {\n        \"acknowledged\": true,\n        \"deletedCount\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Populate Database",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/users/populate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"populate"
+							]
+						},
+						"description": "This API route is used to populate the database with a list of users at once."
+					},
+					"response": [
+						{
+							"name": "Populate Database",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/users/populate",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"populate"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2012"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7dc-5/BJN5fUk3u44PJLWbK7O/iFGB0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Apr 2022 18:53:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Added all coffee beans.\",\n    \"users\": [\n        {\n            \"email\": \"ejeens0@sohu.com\",\n            \"password\": \"15KdgCbuXif\",\n            \"_id\": \"6259bf0cadb3d79f1223fa54\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"dblazhevich1@latimes.com\",\n            \"password\": \"YvYkvl\",\n            \"_id\": \"6259bf0cadb3d79f1223fa55\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"shinkley2@disqus.com\",\n            \"password\": \"SSJIrwitO\",\n            \"_id\": \"6259bf0cadb3d79f1223fa56\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"areuss3@chron.com\",\n            \"password\": \"oaJIdoUVul\",\n            \"_id\": \"6259bf0cadb3d79f1223fa57\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"jcoghlin4@hostgator.com\",\n            \"password\": \"zrkrZpzt\",\n            \"_id\": \"6259bf0cadb3d79f1223fa58\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"hbaythorp5@jiathis.com\",\n            \"password\": \"Oq6z9y5qVH\",\n            \"_id\": \"6259bf0cadb3d79f1223fa59\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"clermit6@comcast.net\",\n            \"password\": \"96X4Mw3IbGS\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5a\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"bhaton7@devhub.com\",\n            \"password\": \"nbthCiUusvd\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5b\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"tmacardle8@webnode.com\",\n            \"password\": \"ODYipZL\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5c\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"lmotte9@businessweek.com\",\n            \"password\": \"yKGsRkH\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5d\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"fpeetera@bbb.org\",\n            \"password\": \"5J59jVqB\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5e\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"ecoatsworthb@squidoo.com\",\n            \"password\": \"jrudVTu0IMk\",\n            \"_id\": \"6259bf0cadb3d79f1223fa5f\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"taspreyc@uol.com.br\",\n            \"password\": \"qZgIg1g\",\n            \"_id\": \"6259bf0cadb3d79f1223fa60\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"dkirked@bing.com\",\n            \"password\": \"z2DGZC\",\n            \"_id\": \"6259bf0cadb3d79f1223fa61\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"cblaxtere@statcounter.com\",\n            \"password\": \"cPvAtcYbN\",\n            \"_id\": \"6259bf0cadb3d79f1223fa62\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"cdominecf@themeforest.net\",\n            \"password\": \"fMg3bgHgZAA\",\n            \"_id\": \"6259bf0cadb3d79f1223fa63\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"ldimberlineg@cocolog-nifty.com\",\n            \"password\": \"x2zIPX\",\n            \"_id\": \"6259bf0cadb3d79f1223fa64\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"fvarrowh@smh.com.au\",\n            \"password\": \"SlJe8o9X5fAM\",\n            \"_id\": \"6259bf0cadb3d79f1223fa65\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"ofranciottii@angelfire.com\",\n            \"password\": \"p99AGcq96\",\n            \"_id\": \"6259bf0cadb3d79f1223fa66\",\n            \"__v\": 0\n        },\n        {\n            \"email\": \"fflattmanj@taobao.com\",\n            \"password\": \"Wba4GFoLH\",\n            \"_id\": \"6259bf0cadb3d79f1223fa67\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"roland@test.com\",\r\n    \"password\": \"roland1234test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"roland@test.com\",\r\n    \"password\": \"roland1234test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/users/login",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "254"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fe-XqT01A/1TfXh/fKaliS/U+4vo/k\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 21:37:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User login successfully.\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjFjZTg5MTQxZTcxNjM5ZjFiYjE5YyIsImVtYWlsIjoicm9sYW5kQHRlc3QuY29tIiwiaWF0IjoxNjUwNTc3MDc4LCJleHAiOjE2NTA2NjM0Nzh9.1Cay8Mw2oDFgrBQynXsWCz35kDCg9KNiNNuve5f6gLQ\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Default API Route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				},
+				"description": "This is the default API route"
+			},
+			"response": [
+				{
+					"name": "Default API Route",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1096"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"448-ixomRKSXUiJH+yZxQvd18+RTIWQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Apr 2022 21:32:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n        <link href=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">\n        <style>\r\n    body{\r\n        font-family: 'Poppins', sans-serif;\r\n        text-align:center;\r\n    }\r\n\r\n    li{\r\n        font-size: 30px; \r\n        text-align:center; \r\n        list-style: none;\r\n    }\r\n\r\n    span{\r\n        font-size: 20px;\r\n        \r\n    }\r\n\r\n    li{\r\n        background-color: rgba(0, 112, 112, 0.363);\r\n        width:50%;\r\n        border-radius: 7px;\r\n        margin: auto;\r\n        margin-top: 10px;\r\n    }\r\n</style>\n        <title>Welcome to the Coffee Brew API.</title>\n    </head>\n    <body>\n        <h1>Coffee Brew API</h1>\n        <h3>Version: 1.0.0</h3>\n        <p>API for information about coffee beans, brews, and customer ratings for those brews</p>\n    </body>\n</html>"
+				}
+			]
+		}
+	]
+}

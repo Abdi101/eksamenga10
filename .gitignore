@@ -1,0 +1,8 @@
+# dependencies
+/node_modules
+
+# readme.pdf
+
+*.pdf
+
+/project-support-docs

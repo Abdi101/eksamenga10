@@ -1,0 +1,56 @@
+.userData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+    background-color: #ddd;
+}
+
+table {
+    width: 100%;
+    padding: 15px;
+}
+
+tr {
+    padding: 25px;
+}
+
+table,
+thead,
+tr,
+thead,
+tbody {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.delete {
+    color: white;
+    background-color: red;
+    /* padding: 10px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.view {
+    color: white;
+    background-color: green;
+    /* padding: 10px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.edit {
+    color: white;
+    background-color: blue;
+    /* padding: 10px; */
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Strawberry Decaf",
+        "brand": "SAN MARCO COFFEE INC",
+        "roastType": "Blend",
+        "roastProfile": "Medium",
+        "description": "Full flavor strawberries make up this favorite!",
+        "countryOfOrigin": "USA",
+        "price": 300
+    },
+    {
+        "name": "Private Reserve Espresso",
+        "brand": "COMMUNITY COFFEE CO LLC",
+        "roastType": "Blend",
+        "roastProfile": "Dark",
+        "description": "The rich, caramelized flavor of our signature Espresso is expertly blended and roasted extra dark to create a full-bodied coffee taste that can be enjoyed straight or in your favorite drink. Made from 100% specialty-grade Arabica coffee.",
+        "countryOfOrigin": "USA",
+        "price": 500
+    },
+    {
+        "name": "Guatemala Huehuetenango",
+        "brand": "FABLE COFFEE",
+        "roastType": "Blend",
+        "roastProfile": "Medium",
+        "description": "Personality: “One more cup of coffee and then I’ll go… Tasting Notes: Baker’s Chocolate, Caramel, Peach Brew Method: Very versatile coffee. All drip methods, cold brew, & great as a single origin espresso.",
+        "countryOfOrigin": "Guatemala",
+        "price": 300
+    },
+    {
+        "name": "Aida Batlle Kilimanjaro",
+        "brand": "COFFEE LABS ROASTERS",
+        "roastType": "Single Origin",
+        "roastProfile": "Medium",
+        "description": "Grown at the Santa Ana Volcano in El Salvador, by renowned coffee producer Aida Batlle. In 2003, Aida Batlle took the entire specialty world by surprise. The Kilimanjaro (named for East Africa’s highest peak) not only won El Salvador’s Cup of Excellence Award; but it sold for a world record–shattering $14.06 per pound. More than a decade later, and Aida Batlle’s coffees continue to astound.",
+        "countryOfOrigin": "USA",
+        "price": 250
+    }
+]

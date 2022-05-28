@@ -1,0 +1,85 @@
+[
+    {
+        "coffeeBeanId": 1,
+        "grindingSettings": 1,    
+        "litresOfWater": 0.2,
+        "gramsOfCoffee": 200,
+        "userVotes": [
+            {
+                "userId":"jsjsjsjjs"
+            },
+            {
+                "userId":"wejsjsjjs"
+            }
+        ]
+    },
+    {
+        "coffeeBeanId": 2,
+        "grindingSettings": 1,    
+        "litresOfWater": 2.2,
+        "gramsOfCoffee": 200,
+        "userVotes": []
+    },
+    {
+        "coffeeBeanId": 1,
+        "grindingSettings": 3,    
+        "litresOfWater": 1.1,
+        "gramsOfCoffee": 300,
+        "userVotes": [
+            {
+                "userId":"jsjsjsjjs"
+            }
+        ]
+    },
+    {
+        "coffeeBeanId": 1,
+        "grindingSettings": 1,    
+        "litresOfWater": 1.1,
+        "gramsOfCoffee": 100,
+        "userVotes": [
+            {
+                "userId":"efjsjsjjs"
+            },
+            {
+                "userId":"55jsjsjjs"
+            },
+            {
+                "userId":"e4jsjsjjs"
+            }
+        ]
+    },
+    {
+        "coffeeBeanId": 2,
+        "grindingSettings": 5,    
+        "litresOfWater": 2.2,
+        "gramsOfCoffee": 150,
+        "userVotes": [
+            {
+                "userId":"efjsjsjjs"
+            },
+            {
+                "userId":"55jsjsjjs"
+            }
+        ]
+    },
+    {
+        "coffeeBeanId": 2,
+        "grindingSettings": 7,    
+        "litresOfWater": 2.2,
+        "gramsOfCoffee": 300,
+        "userVotes": [
+            {
+                "userId":"efjsjsjjs"
+            },
+            {
+                "userId":"55jsjsjjs"
+            },
+            {
+                "userId":"65jsjsjjs"
+            },
+            {
+                "userId":"5ojsjsjjs"
+            }
+        ]
+    }
+]

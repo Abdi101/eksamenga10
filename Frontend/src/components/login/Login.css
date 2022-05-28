@@ -1,0 +1,43 @@
+label{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width:40%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 10%;
+}
+
+span{
+    text-align: left;
+    padding-bottom: 0.5rem;
+}
+
+input{
+    font-size: 1.2rem;
+    width:70%;
+    border: 1px solid gray;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+}
+
+.submit-btn{
+    border: 1px solid gray;
+    display: block;
+    width:20%;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.submit-btn:hover{
+    cursor: pointer;
+    border: 1px solid teal;
+}
+
+.error-message{
+    background-color: tomato;
+    padding:1rem;
+    width:30%;
+    margin: auto;
+}

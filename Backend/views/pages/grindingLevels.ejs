@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head', {title: 'Top Grinding Levels'}); %>
+</head>
+<body>
+    <h1>Top grinding levels</h1>
+    <ul>
+        <% brews.forEach((brew)=>{%>
+            <li><%=brew.grindingSettings%><span>   &rarr; with <%=brew.userVotes.length%> user-votes</span></li>
+        <%});%>
+    </ul>
+</body>
+</html>
