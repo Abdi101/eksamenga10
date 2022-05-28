@@ -22,7 +22,7 @@ const Thermos = ({ className, litersBrewed=2.2 }) => {
                 <div className="thermos-handler"></div>
                 <div className="thermos-ring thermos-ring-bottom"></div>
                 <div className="thermos-window">
-                    <span className="liquid" style={liquidHeighStyle}></span>
+                    <span className="liquid" style={{liquidHeighStyle}}></span>
                     <ul>
                         <li>__ 2.2</li>
                         <li>__ 1.6</li>

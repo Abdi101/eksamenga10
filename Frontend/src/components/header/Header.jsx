@@ -15,13 +15,11 @@ function Header() {
         window.location.reload();
     }
 
-    const location = useLocation().pathname.split("/")[1] || "Dashboard"
-
 
     return (
         <header style={{ position: "relative" }}>
             <h3>
-                <Link to="/" className="logo">{location}</Link>
+                <Link to="/" className="logo">CoffeDash</Link>
             </h3>
             <div className="rightAlign">
             <nav className="nav-bar">

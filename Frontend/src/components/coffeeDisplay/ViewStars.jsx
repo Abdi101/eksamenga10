@@ -43,17 +43,15 @@ function ViewStars(props) {
                 </div>
 
                 {userToken &&
-                    <div style={{display: "flex", flexDirection: "row"}}>
+                    <div style={{display: "flex", flexDirection: "row", width: "inherit", justifyContent: "center"}}>
                         {show && <input
-                            type="text"
-                            placeholder="Rate us"
+                            type="number"
+                            min="1" max="5"
+                            placeholder="1-5"
                             style={{
-                                width: '90%',
                                 padding: "10px",
-                                margin: "auto",
                                 textAlign: "center",
-                                marginBottom: "20px",
-                                marginTop: "20px",
+                                width: "unset"
                             }}
                         />}
                         <button onClick={() => setShow(!show)} className="ratingButton">Rate This Brew</button>

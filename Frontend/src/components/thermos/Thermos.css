@@ -56,6 +56,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 .thermos-ring-bottom {
     bottom: calc(var(--thermos-border)*-1);
@@ -83,6 +84,8 @@
 
     border-left: 1px dashed var(--thermos-border-color);
     border-right: .5px dotted var(--thermos-border-color);
+
+    color: black;
 
     /* glass effect */
     /* From https://css.glass */

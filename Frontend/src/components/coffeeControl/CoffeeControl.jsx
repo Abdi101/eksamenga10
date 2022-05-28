@@ -15,11 +15,11 @@ const CoffeeControl = (props) => {
     const [error, setError] = useState(null);
     const [brew, setBrew] = useState({
         coffeeBeanId: null,
-        grindingSettings: null,
-        gramsOfCoffee: null,
+        grindingSettings: "",
+        gramsOfCoffee: "",
         litresOfWater: null,
         userVotes: [],
-        typeOfCoffee: null
+        typeOfCoffee: ""
     });
 
     const navigate = useNavigate();
@@ -92,7 +92,7 @@ const CoffeeControl = (props) => {
                                 {
                                     list: menuItems,
                                     option: "Type of Coffee",
-                                    placeholder: "Espresso",
+                                    placeholder: "choose type",
                                     attribute: "coffeeBeanId",
                                     beanName: "typeOfCoffee"
                                 }}
@@ -147,7 +147,7 @@ const CoffeeControl = (props) => {
                     } */}
 
                 </div>
-                <p style={{"grid-row": "2 / 3", "grid-column": "1 / 3"}}>
+                <p style={{"gridRow": "2 / 3", "gridColumn": "1 / 3"}}>
                     <Link to="/">
                         View Brewed Coffee Info &rarr;
                     </Link>

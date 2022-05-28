@@ -20,14 +20,12 @@
 }
 .ratingButton{
     color: #f6f6f6;
-    margin-left: 10px;
+    margin-left: 14px;
     padding: 0 15px;
     background-color: #2b2c38;
     font-weight: 600;
-    font-size: 17px;
     padding: 10px 15px;
-    border: none;
-    display: flex;
+    border: none;   
     align-items: center;
     justify-content: center;
     cursor: pointer; 
