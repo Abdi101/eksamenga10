@@ -22,7 +22,7 @@ function MyRatings(props) {
                     token: `Bearer ${userToken}`
                 }
             })
-            console.log(res.data);
+            //console.log(res.data);
             setValues(res.data);
         } catch (err) {
             setError(err);
@@ -49,10 +49,11 @@ function MyRatings(props) {
                 userId: ratingData.userId
             }
         }
-        console.log(payload);
+        //console.log(payload);
         makeRequest(payload, (err, data) => {
             if (data) {
-                setError(null)
+                setError(null);
+                getMyRatings();
                 //console.log(data);
             } else {
                 //console.log(err);
@@ -83,8 +84,8 @@ function MyRatings(props) {
                     <Navbar />
                 </div>
             }
-
-            <div className="containerInner">
+            <h1>My ratings</h1>
+            <div className="containerInner neumorphism-card  container" style={{color: "black"}}>
               {values.length == 0 ? (<h1>You have no ratings</h1>) : ""}
               {values.map(content => (
                 <SingleRating key={content._id} data={content} onClick={updateRating}/>

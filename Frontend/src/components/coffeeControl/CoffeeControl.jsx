@@ -81,6 +81,7 @@ const CoffeeControl = (props) => {
             </div>}
             <h1>Prepare Coffee</h1>
             {error && <p className="error-message">{error}</p>}
+            <div className="container neumorphism-card">
             <div className="CoffeeControl">
                 <Thermos {...props} />
 
@@ -145,13 +146,14 @@ const CoffeeControl = (props) => {
                     } */}
 
                 </div>
-                <p>
+                <p style={{"grid-row": "2 / 3", "grid-column": "1 / 3"}}>
                     <Link to="/">
                         View Brewed Coffee Info &rarr;
                     </Link>
 
                 </p>
             </div>
+        </div>
         </div>
     );
 }

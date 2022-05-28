@@ -15,7 +15,8 @@ const BrewHistory = () => {
         }}>
         <Navbar />
       </div>
-      <div className="containerInner" style={{ marginTop: "20px" }}>
+      <h1>Brew history</h1>
+      <div className="containerInner container neumorphism-card" style={{ marginTop: "20px", color: "black" }}>
         <SingleBrewHistory />
         <SingleBrewHistory />
         <SingleBrewHistory />

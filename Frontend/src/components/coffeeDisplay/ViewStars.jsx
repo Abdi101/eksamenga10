@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StarRating from "../starrating/StarRating";
 import { Star, StarBorder } from '@mui/icons-material';
 
 function ViewStars(props) {
@@ -18,44 +19,26 @@ function ViewStars(props) {
                 margin: "auto",
                 alignItems: "center",
                 justifyContent: "center",
-            }}>
+                                    color: "black",
+            }} className="container neumorphism-card">
                 <h2 style={{ textAlign: "left" }}>Brew Recipe</h2>
                 <div style={{
-                    backgroundColor: "#ccc",
                     width: "100%",
                     padding: "20px",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
                 }}>
                     <div style={{
                         flex: "1",
                         display: "flex",
-                        marginBottom: "20px"
+                        marginBottom: "20px",
+                        fontSize: "1.3rem",
+                        justifyContent: "space-around",
                     }}>
-                        <span>Coffee:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>Evergood Classic</span>
-                        <span>Grinding Settings:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>7</span>
-                        <span>Water:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>1.5l</span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><StarBorder /></span>
+                        <span><b>Coffee: </b>Evergood Classic</span>
+                        <span><b>Grinding Settings: </b>1</span>
+                        <span><b>Water: </b>1.5l</span>
+                        <StarRating/>
 
                     </div>
                 </div>
