@@ -73,7 +73,7 @@ const CoffeeControl = (props) => {
         <div>
             <Header />
             {token && <div style={{
-                backgroundColor: '#eee',
+                backgroundColor: '#444',
                 width: '100%',
                 margin: 0
             }}>

@@ -22,3 +22,8 @@
     font-weight: 600;
     margin-right: 10px;
 }
+.navbar{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}

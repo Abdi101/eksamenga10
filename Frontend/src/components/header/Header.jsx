@@ -26,6 +26,11 @@ function Header() {
             <div className="rightAlign">
             <nav className="nav-bar">
                 <ul>
+                    {isAdmin === "true" && <>
+                        <li><Link to="/users">Add Users</Link></li>  
+                        <li><Link to="/">Manage beans</Link></li>     
+
+                    </>}
                     {
                         userToken ? (
                             <>
@@ -47,30 +52,6 @@ function Header() {
 
                 </ul>
             </nav>
-
-            {isAdmin === "true" && <div style={{
-                position: "absolute",
-                right: "30px",
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                marginRight: "20px"
-            }}>
-                <Link to="/users"
-                    style={{
-                        textDecoration: "none",
-                    }} className="linkButton"
-                >
-                    <button className="button-admin">Add Users</button>
-                </Link>
-                <Link to="/"
-                    style={{
-                        borderBottom: "1px solid transparent",
-                    }} className="linkButton"
-                >
-                    <button className="button-admin">Manage Beans</button>
-                </Link>
-            </div>}
             </div>
         </header>
     )

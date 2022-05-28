@@ -9,7 +9,7 @@ const BrewHistory = () => {
     <Header />
       <div
         style={{
-          backgroundColor: '#eee',
+          backgroundColor: '#444',
           width: '100%',
           margin: 0
         }}>

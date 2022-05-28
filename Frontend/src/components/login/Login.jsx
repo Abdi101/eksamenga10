@@ -41,6 +41,7 @@ function Login() {
             if (data) {
                 console.log(data);
                 JSON.stringify(localStorage.setItem("userToken", data.token))
+                JSON.stringify(localStorage.setItem("userId", data._id))
                 JSON.stringify(localStorage.setItem("isAdmin", data.isAdmin))
                 JSON.stringify(localStorage.setItem("isEmployee", data.isAnEmployee))
                 setIsLoading(false);

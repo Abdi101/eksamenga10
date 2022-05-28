@@ -10,13 +10,14 @@ import axios from 'axios';
 function MyRatings(props) {
 
     const userToken = localStorage.getItem('userToken');
+    const userID = localStorage.getItem('userId');
 
     const [values, setValues] = useState([]);
     const [error, setError] = useState("");
 
     const getMyRatings = async () => {
         try {
-            const res = await axios.get("http://localhost:3001/api/ratings?userId=6290e4684e493d599e8303b1", {
+            const res = await axios.get(`http://localhost:3001/api/ratings?userId=${userID}`, {
                 headers: {
                     token: `Bearer ${userToken}`
                 }
@@ -76,6 +77,7 @@ function MyRatings(props) {
             {
                 userToken && <div style={{
                     width: '100%',
+                    backgroundColor: '#444',
                     margin: 0
                 }}>
                     <Navbar />
@@ -83,6 +85,7 @@ function MyRatings(props) {
             }
 
             <div className="containerInner">
+              {values.length == 0 ? (<h1>You have no ratings</h1>) : ""}
               {values.map(content => (
                 <SingleRating key={content._id} data={content} onClick={updateRating}/>
               ))}

@@ -15,12 +15,18 @@ header {
     list-style: none;
     justify-content: space-around;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 a {
     text-decoration: none;
     transition: 0.3s;
+}
+
+a:visited{
+    color: #444;
 }
 
 a:hover {
