@@ -1,76 +1,45 @@
-import { Star, StarBorder } from '@mui/icons-material';
-import React from 'react'
+import StarRating from "../starrating/StarRating";
+import { useState } from 'react';
 
-const SingleRating = () => {
-
-    const token = localStorage.getItem("userToken")
-
+const SingleRating = (props) => {
+    const [edit, setEdit] = useState(false);
+    const [rating, setRating] = useState("");
+    const handleEditCancel = () => {
+        {setEdit(!edit)}
+    }
+    const handleSave = () => {
+        console.log(rating);
+        if(edit){setEdit(!edit)}
+        props.onClick(rating, props.data);
+    }
     return (
-        <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "row",
-            marginBottom: "15px",
-        }}>
+        <div className="ratingWrapper">
             <div style={{
                 marginRight: "10px"
             }}>28/02/2022</div>
-            <div style={{
-                backgroundColor: "#ccc",
-                width: "100%",
-                // backgroundColor: "#eee",
-                padding: "20px",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-            }}>
-                <div style={{
-                    flex: "1",
-                    display: "flex"
-                }}>
-                    <span>Coffee:</span>
-                    <span style={{
-                        fontWeight: 700,
-                        marginRight: "10px",
-                        marginLeft: "3px"
-                    }}>Evergood Classic</span>
-                    <span>Grinding Settings:</span>
-                    <span style={{
-                        fontWeight: 700,
-                        marginRight: "10px",
-                        marginLeft: "3px"
-                    }}>7</span>
-                    <span>Water:</span>
-                    <span style={{
-                        fontWeight: 700,
-                        marginRight: "10px",
-                        marginLeft: "3px"
-                    }}>1.5l</span>
-                    <span><Star /></span>
-                    <span><Star /></span>
-                    <span><Star /></span>
-                    <span><Star /></span>
-                    <span><StarBorder /></span>
-
-                </div>
+            <div className="ratingInfo">
+                    <span><b>Coffee: </b>Evergood Classic</span>
+                    <span><b>Grinding Setting: </b>{props.data.brewId.grindingSettings}</span>
+                    <span><b>Water: </b>1.5l</span>
+                    {!edit && <StarRating {...props.data}/>}
+                    {edit && <input 
+                                type="number"
+                                min="1" max="5"
+                                id="newRating"
+                                name="newRating"
+                                placeholder={props.data.rating} 
+                                value={setRating.newRating}
+                                onChange={(e) => { setRating({ newRating: e.target.value }) }}
+                                />}
             </div>
-            {token && <button style={{
-                color: "white",
-                marginLeft: "10px",
-                padding: "0 15px",
-                backgroundColor: "#444",
-                fontWeight: 600,
-                fontSize: "17px",
-                padding: "10px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer"
-            }}>Edit</button>}
+            <button className={ `ratingButton ${edit && 'secondaryButton'}` } onClick={handleEditCancel}>{edit&&"Cancel"}{!edit&&"Edit"}</button>
+            {edit&&<button className="ratingButton" onClick={handleSave}>Save</button>}
         </div >
     )
+}
+
+SingleRating.defaultProps = {
+    onClick: () => {}
 }
 
 export default SingleRating;

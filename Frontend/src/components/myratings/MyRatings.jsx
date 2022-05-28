@@ -3,10 +3,71 @@ import ViewStars from '../coffeeDisplay/ViewStars';
 import Navbar from '../navbar/Navbar';
 import SingleRating from "./SingleRating";
 import Header from "../header/Header";
+import { makeRequest } from '../../api/requests';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function MyRatings(props) {
 
     const userToken = localStorage.getItem('userToken');
+
+    const [values, setValues] = useState([]);
+    const [error, setError] = useState("");
+
+    const getMyRatings = async () => {
+        try {
+            const res = await axios.get("http://localhost:3001/api/ratings?userId=6290e4684e493d599e8303b1", {
+                headers: {
+                    token: `Bearer ${userToken}`
+                }
+            })
+            console.log(res.data);
+            setValues(res.data);
+        } catch (err) {
+            setError(err);
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getMyRatings();
+    }, [])
+
+    const updateRating = async (newRating, ratingData) => {
+        let payload = {
+            apiEndpoint: `/ratings/${ratingData._id}`,
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': `Bearer ${userToken}`,
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: {
+                brewId: ratingData.brewId._id,
+                rating: parseInt(newRating.newRating),
+                userId: ratingData.userId
+            }
+        }
+        console.log(payload);
+        makeRequest(payload, (err, data) => {
+            if (data) {
+                setError(null)
+                //console.log(data);
+            } else {
+                //console.log(err);
+                switch (typeof err.error) {
+                    case "object":
+                        setError(err.error.message)
+                        break;
+                    case "string":
+                        setError(err.error)
+                        break;
+                }
+            }
+        });
+
+        getMyRatings();
+    }
 
     return (
         <div>
@@ -14,7 +75,6 @@ function MyRatings(props) {
 
             {
                 userToken && <div style={{
-                    backgroundColor: '#eee',
                     width: '100%',
                     margin: 0
                 }}>
@@ -23,15 +83,14 @@ function MyRatings(props) {
             }
 
             <div className="containerInner">
-
-                <SingleRating />
-                <SingleRating />
-                <SingleRating />
-                <SingleRating />
+              {values.map(content => (
+                <SingleRating key={content._id} data={content} onClick={updateRating}/>
+              ))}
 
             </div>
         </div>
     )
 }
+
 
 export default MyRatings;

@@ -23,7 +23,7 @@ function Header() {
             <h3>
                 <Link to="/" className="logo">{location}</Link>
             </h3>
-
+            <div className="rightAlign">
             <nav className="nav-bar">
                 <ul>
                     {
@@ -59,19 +59,19 @@ function Header() {
                 <Link to="/users"
                     style={{
                         textDecoration: "none",
-                    }}
+                    }} className="linkButton"
                 >
                     <button className="button-admin">Add Users</button>
                 </Link>
                 <Link to="/"
                     style={{
                         borderBottom: "1px solid transparent",
-                    }}
+                    }} className="linkButton"
                 >
                     <button className="button-admin">Manage Beans</button>
                 </Link>
             </div>}
-
+            </div>
         </header>
     )
 }
