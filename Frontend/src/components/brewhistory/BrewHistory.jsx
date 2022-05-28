@@ -9,14 +9,14 @@ const BrewHistory = () => {
     <Header />
       <div
         style={{
-          backgroundColor: '#444',
+          backgroundColor: '#1b1c23',
           width: '100%',
           margin: 0
         }}>
         <Navbar />
       </div>
       <h1>Brew history</h1>
-      <div className="containerInner container neumorphism-card" style={{ marginTop: "20px", color: "black" }}>
+      <div className="containerInner container neumorphism-card" style={{ marginTop: "20px", color: "#d9d9d9" }}>
         <SingleBrewHistory />
         <SingleBrewHistory />
         <SingleBrewHistory />

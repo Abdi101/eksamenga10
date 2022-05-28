@@ -19,16 +19,24 @@
     gap: 1rem;
 }
 
-.drop-down-menu{
-    padding:0.3rem;
-    font-size: 1rem; 
-    border-radius: 0.4rem;  
+.drop-down-menu {
+    padding: 0.3rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    background-color: #2b2c38;
+    border: 1px solid #343543;
+    color: #f6f6f6;
 }
 
 .control-label{
     width:100%;
     padding: 0;
     margin-bottom: 0.2rem;
+    color: #f6f6f6;
+}
+
+.control-label span {
+    margin-bottom: 10px;
 }
 
 

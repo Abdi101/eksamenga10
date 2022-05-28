@@ -78,14 +78,14 @@ function MyRatings(props) {
             {
                 userToken && <div style={{
                     width: '100%',
-                    backgroundColor: '#444',
+                    backgroundColor: '#1b1c23',
                     margin: 0
                 }}>
                     <Navbar />
                 </div>
             }
             <h1>My ratings</h1>
-            <div className="containerInner neumorphism-card  container" style={{color: "black"}}>
+            <div className="containerInner neumorphism-card  container" style={{color: "#d9d9d9"}}>
               {values.length == 0 ? (<h1>You have no ratings</h1>) : ""}
               {values.map(content => (
                 <SingleRating key={content._id} data={content} onClick={updateRating}/>

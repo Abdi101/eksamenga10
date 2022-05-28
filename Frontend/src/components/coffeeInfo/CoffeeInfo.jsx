@@ -48,24 +48,12 @@ const CoffeeInfo = (props) => {
     return (
         <div className="CoffeeInfo">
             <ul>
-                <li style={{
-                    color: "black",
-                }} ><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
-                <li style={{
-                    color: "black",
-                }} ><span>Time </span><Moment format="hh:mm[h]">{brewedAt}</Moment></li>
-                <li style={{
-                    color: "black",
-                }} ><span>Liters brewed </span>{litersBrewed}</li>
-                <li style={{
-                    color: "black",
-                }} ><span>Type of coffee </span>{typeOfCoffee}</li>
-                <li style={{
-                    color: "black",
-                }} ><span>Coffee left </span>{coffeeLeft}</li>
-                <li style={{
-                    color: "black",
-                }} >
+                <li><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
+                <li><span>Time </span><Moment format="hh:mm[h]">{brewedAt}</Moment></li>
+                <li><span>Liters brewed </span>{litersBrewed}</li>
+                <li><span>Type of coffee </span>{typeOfCoffee}</li>
+                <li><span>Coffee left </span>{coffeeLeft}</li>
+                <li>
                     <span>Status </span>
                     {/* Option a - declarative with JSX */}
                     {/* {diff < 90 && `Hot`}

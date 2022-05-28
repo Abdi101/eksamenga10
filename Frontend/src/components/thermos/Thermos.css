@@ -57,11 +57,6 @@
     align-items: center;
     justify-content: center;
 }
-
-.thermos-ring-upper>span {
-    filter: invert(100%);
-}
-
 .thermos-ring-bottom {
     bottom: calc(var(--thermos-border)*-1);
 }

@@ -73,7 +73,7 @@ const CoffeeControl = (props) => {
         <div>
             <Header />
             {token && <div style={{
-                backgroundColor: '#444',
+                backgroundColor: '#1b1c23',
                 width: '100%',
                 margin: 0
             }}>
@@ -107,7 +107,7 @@ const CoffeeControl = (props) => {
                                 {
                                     list: [1, 2, 4, 5, 6, 7],
                                     option: "Choose Grinding Level",
-                                    placeholder: "3",
+                                    placeholder: "Choose Grinding Level",
                                     attribute: "grindingSettings",
                                     beanName: "typeOfCoffee"
                                 }}
@@ -126,15 +126,16 @@ const CoffeeControl = (props) => {
                                     value={brew.gramsOfCoffee}
                                     autoFocus={true}
                                     onChange={(e) => { setBrew({ ...brew, gramsOfCoffee: e.target.value }) }}
+                                    style={{backgroundColor: "#2b2c38", border: "1px solid #343543", color: "#f6f6f6"}}
                                 />
                             </label>
                         )
                     }
 
 
-                    <CoffeeButton litersToBrew='2.2' onClick={handleOnClick} />
+                   {brew.gramsOfCoffee && <><CoffeeButton litersToBrew='2.2' onClick={handleOnClick} />
                     <CoffeeButton litersToBrew='1.1' onClick={handleOnClick} />
-                    <CoffeeButton litersToBrew='0.5' onClick={handleOnClick} />
+                    <CoffeeButton litersToBrew='0.5' onClick={handleOnClick} /> </>}
                     {/* {
                         brew.gramsOfCoffee && (
                             <>

@@ -3,8 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 60%;
-    margin: auto;
-    background-color: #ddd;
+    background-color: #0f1015;
 }
 
 table {
@@ -21,36 +20,43 @@ thead,
 tr,
 thead,
 tbody {
-    border: 1px solid black;
+    border: 1px solid #1b1c23;
     border-collapse: collapse;
 }
 
-.delete {
-    color: white;
-    background-color: red;
-    /* padding: 10px; */
-    margin-right: 5px;
-    cursor: pointer;
-    border: none;
-    outline: none;
+td, th{
+    padding: 10px;
 }
 
-.view {
-    color: white;
-    background-color: green;
-    /* padding: 10px; */
-    margin-right: 5px;
+.delete {
+    color: red;
+    background-color: unset;
+     padding: 3px 8px;
+    margin-right: 8px;
     cursor: pointer;
-    border: none;
+    border: 1px solid red;
     outline: none;
+}
+.delete:hover{
+    background-color: red;
+    color: white;
+}
+
+.view:hover{
+    background-color: green;
 }
 
 .edit {
-    color: white;
-    background-color: blue;
-    /* padding: 10px; */
-    margin-right: 5px;
+    color: dodgerblue;
+    background-color: unset;
+     padding: 3px 8px;
+    margin-right: 8px;
     cursor: pointer;
-    border: none;
+    border: 1px solid dodgerblue;
     outline: none;
+}
+
+.edit:hover{
+    background-color: dodgerblue;
+    color: white;
 }

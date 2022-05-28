@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #EDE5D0;
+  background-color: #07080d;
   min-height: 100vh;
   /* padding: 2rem; */
 }
@@ -10,6 +10,10 @@
 main {
   display: flex;
   flex-direction: column;
+}
+
+h1, h2, h3{
+  color: #f6f6f6;
 }
 
 #examples {
@@ -44,6 +48,6 @@ main {
 .neumorphism-card {
   border-radius: 25px;
   margin-bottom: 40px;
-  background-color: #e5decd;
+  background-color: #0f1015;
   box-shadow: 5px 5px 10px #00000030;
 }

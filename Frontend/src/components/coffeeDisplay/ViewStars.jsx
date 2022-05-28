@@ -19,7 +19,6 @@ function ViewStars(props) {
                 margin: "auto",
                 alignItems: "center",
                 justifyContent: "center",
-                                    color: "black",
             }} className="container neumorphism-card">
                 <h2 style={{ textAlign: "left" }}>Brew Recipe</h2>
                 <div style={{
@@ -44,24 +43,7 @@ function ViewStars(props) {
                 </div>
 
                 {userToken &&
-                    <div>
-                        <button
-                            onClick={() => setShow(!show)}
-                            style={{
-                                width: "200px",
-                                backgroundColor: "black",
-                                color: "white",
-                                padding: "10px 15px",
-                                fontSize: "17px",
-                                cursor: "pointer",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                marginTop: "20px",
-                                marginBottom: "15px",
-                                margin: "auto",
-                                marginTop: "20px"
-                            }}>Rate This Brew</button>
+                    <div style={{display: "flex", flexDirection: "row"}}>
                         {show && <input
                             type="text"
                             placeholder="Rate us"
@@ -74,6 +56,7 @@ function ViewStars(props) {
                                 marginTop: "20px",
                             }}
                         />}
+                        <button onClick={() => setShow(!show)} className="ratingButton">Rate This Brew</button>
                     </div>
                 }
             </div>

@@ -13,7 +13,7 @@ function CoffeeDisplay(props) {
         <div>
             <Header />
             {userToken && <div style={{
-                backgroundColor: '#444',
+                backgroundColor: '#1b1c23',
                 width: '100%',
                 margin: 0
             }}>

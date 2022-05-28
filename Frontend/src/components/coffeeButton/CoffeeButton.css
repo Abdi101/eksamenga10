@@ -7,7 +7,7 @@
     max-height: 100px;
     height: 100px;
 
-    --coffee-button-background-color: #6f4e37;
+    --coffee-button-background-color: #343543;
 }
 
 .CoffeeButton button {
@@ -20,8 +20,6 @@
     background-color: var(--coffee-button-background-color);
 
     border-color: transparent;
-    box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2),
-        -12px -12px 24px 0 rgba(255, 255, 255, 0.5);
     border-radius: 40px;
     cursor: pointer;
     font-weight: 600;
@@ -29,8 +27,7 @@
 }
 
 .CoffeeButton button:active {
-    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
-        inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    background-color: black;
 }
 
 .CoffeeButton button:hover {

@@ -47,7 +47,7 @@ function Users(props) {
 
             {
                 userToken && <div style={{
-                    backgroundColor: '#eee',
+                    backgroundColor: 'rgb(27, 28, 35)',
                     width: '100%',
                     margin: 0
                 }}>
@@ -55,7 +55,7 @@ function Users(props) {
                 </div>
             }
 
-            <div className='userData'>
+            <div className='userData container neumorphism-card' id="top-container">
                 <table>
                     <thead>
                         <tr>
@@ -74,7 +74,6 @@ function Users(props) {
                                     <td>Active</td>
                                     <td>
                                         <button className='delete' onClick={handleDelete}>Delete</button>
-                                        <button className='view'>View</button>
                                         <button className='edit'>Edit</button>
                                     </td>
                                 </tr>
