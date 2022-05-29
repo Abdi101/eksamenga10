@@ -75,6 +75,36 @@ const ManageBeans = (props) => {
         });
     }
 
+    const deleteBeans = async (beanID) => {
+            let payload = {
+                apiEndpoint: `/beans/${beanID}`,
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'token': `Bearer ${token}`,
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }
+            //console.log(payload);
+            makeRequest(payload, (err, data) => {
+                if (data) {
+                    setError(null);
+                    console.log(data);
+                    getBeans();
+                } else {
+                    //console.log(err);
+                    switch (typeof err.error) {
+                        case "object":
+                            setError(err.error.message)
+                            break;
+                        case "string":
+                            setError(err.error)
+                            break;
+                    }
+                }
+            });
+    }
+
     return (
         <div>{console.log("rednered")}
             <Header />
@@ -92,7 +122,7 @@ const ManageBeans = (props) => {
             <div className="beansList">
             <SingleBean/>
             {menuItems.map(content => (
-                <SingleBean key={content._id} data={content} isAdmin={isAdmin} onClick={updateBeans}/>
+                <SingleBean key={content._id} data={content} isAdmin={isAdmin} onClick={updateBeans} delete={deleteBeans}/>
             ))}
             </div>
             </div>

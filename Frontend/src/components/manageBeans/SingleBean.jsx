@@ -16,6 +16,7 @@ const SingleBean = (props) => {
         }
 
         const handleDelete = () => {
+            props.delete(props.data._id);
         }
 
     return (
@@ -37,7 +38,7 @@ const SingleBean = (props) => {
         <button className="delete beanButton" onClick={() => {setDelModalVisible(true)}}>delete</button>
         {/*<button className="beanButton delete">delete</button>*/}
         {modalVisible && <EditBeanModal closeModal={setModalVisible} data={newData} onClick={handleEdit}/>}
-        {delModalVisible && <ConfirmDeleteModal closeModal={setDelModalVisible}/>}
+        {delModalVisible && <ConfirmDeleteModal closeModal={setDelModalVisible} deleteBeans={handleDelete}/>}
         </div>
         </>
         }

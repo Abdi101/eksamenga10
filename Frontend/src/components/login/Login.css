@@ -1,5 +1,6 @@
 .loginLabel{
     display: flex;
+    color: #f1f1f1;
     justify-content: space-around;
     flex-direction: column;
     width:40%;
@@ -9,8 +10,9 @@
     padding-left: 10%;
 }
 
-span{
+.loginLabel span{
     text-align: left;
+    margin-bottom: 5px;
 }
 
 input{

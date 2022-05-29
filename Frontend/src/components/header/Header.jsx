@@ -25,7 +25,7 @@ function Header() {
             <nav className="nav-bar">
                 <ul>
                     {isAdmin === "true" && <>
-                        <li><Link to="/users">Add Users</Link></li>  
+                        <li><Link to="/users">Users</Link></li>  
                     </>}
 
                     {

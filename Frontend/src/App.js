@@ -6,6 +6,7 @@ import Header from './components/header/Header.jsx';
 import Login from './components/login/Login.jsx';
 import SignUp from './components/signup/Signup.jsx';
 import moment from 'moment';
+import { makeRequest } from './api/requests';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import MyRatings from './components/myratings/MyRatings.jsx';
@@ -16,6 +17,7 @@ function App() {
 
   // Check if thereis a logged in user
   const user = localStorage.getItem('userToken');
+  const [error, setError] = useState(null);
 
   const [initialState, setInitialState] = useState(
     {
@@ -28,7 +30,8 @@ function App() {
   )
 
   const handleNewCoffee = (newBrew) => {
-    console.log("App.js -> New coffee!!!", newBrew);
+    console.log(newBrew);
+    createBrew(newBrew);
     //New coffee ready. This is:
     //litersBrewed = newLitres
     //brewAt = current datew
@@ -47,7 +50,40 @@ function App() {
   }
 
 
-
+    const createBrew = async (brewData) => {
+        let payload = {
+            apiEndpoint: `/brews`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': `Bearer ${user}`,
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: {
+                coffeeBeanId: brewData.coffeeBeanId,
+                gramsOfCoffee: brewData.gramsOfCoffee,
+                grindingSettings: brewData.grindingSettings,
+                litresOfWater: brewData.litersBrewed
+            }
+        }
+        //console.log(payload);
+        makeRequest(payload, (err, data) => {
+            if (data) {
+                setError(null);
+                console.log(data);
+            } else {
+                //console.log(err);
+                switch (typeof err.error) {
+                    case "object":
+                        setError(err.error.message)
+                        break;
+                    case "string":
+                        setError(err.error)
+                        break;
+                }
+            }
+        });
+    }
 
   return (
     <div className="App">
@@ -55,10 +91,10 @@ function App() {
         {/* <Header /> */}
         <main>
           <Routes>
-            <Route path="/" element={<CoffeeDisplay />} />
+            <Route path="/" element={<CoffeeDisplay {...initialState.coffee}/>} />
             <Route
               path="/brew-updater"
-              element={<CoffeeControl onChange={handleNewCoffee} />}
+              element={<CoffeeControl onChange={handleNewCoffee} {...initialState.coffee}/>}
             />
             <Route
               path="/my-ratings"

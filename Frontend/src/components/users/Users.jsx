@@ -54,7 +54,7 @@ function Users(props) {
                     <Navbar />
                 </div>
             }
-
+            <h1>Users</h1>
             <div className='userData container neumorphism-card' id="top-container">
                 <table>
                     <thead>

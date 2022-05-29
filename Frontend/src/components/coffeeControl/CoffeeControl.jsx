@@ -18,10 +18,8 @@ const CoffeeControl = (props) => {
         grindingSettings: "",
         gramsOfCoffee: "",
         litresOfWater: null,
-        userVotes: [],
         typeOfCoffee: ""
     });
-
     const navigate = useNavigate();
 
     const token = localStorage.getItem("userToken")
@@ -32,7 +30,8 @@ const CoffeeControl = (props) => {
             apiEndpoint: '/beans',
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'token': `Bearer ${token}`
             },
         }
 
@@ -41,8 +40,9 @@ const CoffeeControl = (props) => {
         makeRequest(payload, (err, data) => {
             if (data) {
                 setIsLoading(false);
-                setError(null)
-                setMenuItems(data);
+                setError(null);
+                setMenuItems(data.coffeeBeans);
+                console.log(menuItems);
             } else {
                 setIsLoading(false);
                 console.log(err);
@@ -57,7 +57,6 @@ const CoffeeControl = (props) => {
             }
         });
     }, [])
-
 
     const handleOnClick = (newLiters) => {
         console.log("CoffeeControl (handleClick): ", newLiters);

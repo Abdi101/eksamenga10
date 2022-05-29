@@ -6,7 +6,7 @@ import Navbar from '../navbar/Navbar';
 import Header from '../header/Header';
 
 function CoffeeDisplay(props) {
-
+    console.log(props);
     const userToken = localStorage.getItem('userToken');
 
     return (

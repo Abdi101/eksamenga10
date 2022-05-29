@@ -4,6 +4,10 @@ const ConfirmDeleteModal = (props) => {
 
     const [modalVisible,setModalVisible] = useState(false);
 
+    const handleDelete = () => {
+        props.deleteBeans();
+    }
+
     return (
     <>
         <div className="EditBeanModal">
@@ -11,7 +15,7 @@ const ConfirmDeleteModal = (props) => {
             <div className="mainModalBody neumorphism-card">
             <h1>Warning:</h1>
             <p style={{fontSize: "2rem"}}>Are you sure you want do delete this bean?</p>
-                <button className="edit modalButton">confirm</button>
+                <button className="edit modalButton" onClick={handleDelete}>confirm</button>
                 <button className="cancel modalButton" onClick={() => props.closeModal(false)}>cancel</button>
             </div>
         </div>

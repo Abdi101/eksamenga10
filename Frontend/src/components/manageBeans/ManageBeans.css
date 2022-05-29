@@ -17,6 +17,11 @@
 	font-size: 1.2rem;
 	gap: 14px 30px;
 	width: fit-content;
+    text-align: left;
+}
+
+.beanInfo span{
+    width: 16%;
 }
 
 .beanWrapper{
@@ -27,8 +32,9 @@
 	border-bottom: 1px solid #1b1c23;
 }
 
-.beanDesc{
+span.beanDesc{
 	width: 100%;
+    text-align: left;
 }
 
 .beanButtonWrapper {

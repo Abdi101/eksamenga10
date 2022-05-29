@@ -90,7 +90,7 @@ router.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 
 // Delete coffee bean by ID
-router.delete("/remove/:id", verifyTokenAndAdmin, async (req, res) => {
+router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
         const coffeeBean = await CoffeeBean.findByIdAndDelete(req.params.id);
         if (!coffeeBean) {

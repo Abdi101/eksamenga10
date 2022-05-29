@@ -34,9 +34,9 @@ function ViewStars(props) {
                         fontSize: "1.3rem",
                         justifyContent: "space-around",
                     }}>
-                        <span><b>Coffee: </b>Evergood Classic</span>
-                        <span><b>Grinding Settings: </b>1</span>
-                        <span><b>Water: </b>1.5l</span>
+                        <span><b>Coffee: </b>{props.typeOfCoffee}</span>
+                        <span><b>Grinding Settings: </b>{props.grindingSettings}</span>
+                        <span><b>Water: </b>{props.litersBrewed}L</span>
                         <StarRating/>
 
                     </div>
