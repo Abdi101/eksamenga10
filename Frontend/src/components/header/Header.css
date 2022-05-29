@@ -20,6 +20,7 @@ header {
 a {
     text-decoration: none;
     transition: 0.3s;
+    color:  #f6f6f6;
 }
 
 a:visited{

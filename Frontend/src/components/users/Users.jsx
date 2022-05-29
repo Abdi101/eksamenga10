@@ -73,8 +73,8 @@ function Users(props) {
                                     <td>{value.email}</td>
                                     <td>Active</td>
                                     <td>
-                                        <button className='delete' onClick={handleDelete}>Delete</button>
-                                        <button className='edit'>Edit</button>
+                                        <button className='delete userButton' onClick={handleDelete}>Delete</button>
+                                        <button className='edit userButton'>Edit</button>
                                     </td>
                                 </tr>
                             ))

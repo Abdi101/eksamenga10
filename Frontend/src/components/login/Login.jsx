@@ -66,9 +66,9 @@ function Login() {
         <>
             <Header />
             <h1>User Login Form</h1>
-            <form>
+            <form className="loginForm">
                 {error && <p className="error-message">{error}</p>}
-                <label>
+                <label className="loginLabel">
                     <span>Email</span>
                     <input
                         type="email"
@@ -79,7 +79,7 @@ function Login() {
                     />
                 </label>
 
-                <label>
+                <label className="loginLabel">
                     <span>Password</span>
                     <input
                         type="password"

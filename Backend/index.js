@@ -33,7 +33,7 @@ app.get('/api', (req, res) => {
 // Routes MiddleWare
 app.use('/api/users', userRouter);
 app.use('/api/allusers', userRouterAuth);
-app.use('/api/coffeebeans', coffeeBeanRoute);
+app.use('/api/beans', coffeeBeanRoute);
 app.use('/api/beans', coffeeBeanRouter);
 app.use('/api/brews', brewRoute);
 app.use('/api/ratings', ratingRoute);

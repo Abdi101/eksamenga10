@@ -63,8 +63,9 @@ router.get("/:id", verifyTokenAndAdmin, async (req, res) => {
 })
 
 // Update coffee bean by id
-router.put("/update/:id", verifyTokenAndAdmin, async (req, res) => {
+router.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
+        console.log(req.body);
         const coffeeBean = await CoffeeBean.findByIdAndUpdate(
             req.params.id, { $set: req.body }, {
             new: true,

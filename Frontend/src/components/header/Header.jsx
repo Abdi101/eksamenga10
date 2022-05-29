@@ -26,12 +26,12 @@ function Header() {
                 <ul>
                     {isAdmin === "true" && <>
                         <li><Link to="/users">Add Users</Link></li>  
-                        <li><Link to="/">Manage beans</Link></li>     
-
                     </>}
+
                     {
                         userToken ? (
                             <>
+                                <li><Link to="/coffee-beans">Coffee beans</Link></li>
                                 <li onClick={handleLogout}>
                                     <Link to="/">Logout</Link>
                                 </li>

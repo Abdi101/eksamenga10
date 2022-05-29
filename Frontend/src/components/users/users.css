@@ -28,14 +28,17 @@ td, th{
     padding: 10px;
 }
 
+.userButton{
+    padding: 3px 8px;
+    margin-right: 8px;
+    outline: none;
+    background-color: unset;
+    cursor: pointer;
+}
 .delete {
     color: red;
-    background-color: unset;
-     padding: 3px 8px;
-    margin-right: 8px;
-    cursor: pointer;
     border: 1px solid red;
-    outline: none;
+
 }
 .delete:hover{
     background-color: red;
@@ -48,15 +51,21 @@ td, th{
 
 .edit {
     color: dodgerblue;
-    background-color: unset;
-     padding: 3px 8px;
-    margin-right: 8px;
-    cursor: pointer;
     border: 1px solid dodgerblue;
-    outline: none;
 }
 
 .edit:hover{
     background-color: dodgerblue;
     color: white;
+}
+
+.cancel{
+  background-color: #2b2c38;
+  border: 1px solid #2b2c38;
+  color: #f6f6f6;  
+}
+
+.cancel:hover{
+  background-color: black;
+  border-color: black;
 }

@@ -1,4 +1,4 @@
-label{
+.loginLabel{
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -22,11 +22,13 @@ input{
 }
 
 .submit-btn{
-    border: 1px solid gray;
     display: block;
     width:20%;
     margin: auto;
     transition: 0.3s;
+    background-color: rgb(43, 44, 56);
+    border: 1px solid rgb(52, 53, 67);
+    color: rgb(246, 246, 246);
 }
 
 .submit-btn:hover{
@@ -39,4 +41,18 @@ input{
     padding:1rem;
     width:30%;
     margin: auto;
+}
+
+.loginForm label input, .signUpForm label input{
+    background-color: rgb(43, 44, 56);
+    border: 1px solid rgb(52, 53, 67);
+    color: rgb(246, 246, 246);
+}
+
+.loginForm p, .signUpForm p{
+    color: #f1f1f1;
+}
+
+.loginForm a, .signUpForm a{
+    color: teal;
 }

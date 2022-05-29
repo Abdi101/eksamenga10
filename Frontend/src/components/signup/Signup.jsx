@@ -59,7 +59,7 @@ function SignUp({ updateToken }) {
         <>
             <Header />
             <h1>Create an Account</h1>
-            <form>
+            <form className="signUpForm">
                 {error && <p className="error-message">{error}</p>}
                 <label>
                     <span>Email</span>

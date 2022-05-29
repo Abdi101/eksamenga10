@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CoffeeControl from './components/coffeeControl/CoffeeControl.jsx';
 import CoffeeDisplay from './components/coffeeDisplay/CoffeeDisplay.jsx';
+import ManageBeans from './components/manageBeans/ManageBeans.jsx';
 import Header from './components/header/Header.jsx';
 import Login from './components/login/Login.jsx';
 import SignUp from './components/signup/Signup.jsx';
@@ -70,6 +71,10 @@ function App() {
             <Route
               path="/users"
               element={<Users />}
+            />
+            <Route
+              path="/coffee-beans"
+              element={<ManageBeans />}
             />
             <Route
               path="/login"
