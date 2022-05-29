@@ -16,7 +16,7 @@
 	flex-wrap: wrap;
 	font-size: 1.2rem;
 	gap: 14px 30px;
-	width: fit-content;
+	width: 100%;
     text-align: left;
 }
 
@@ -27,9 +27,12 @@
 .beanWrapper{
 	display: flex;
 	align-items: center;
-	padding-bottom: 22px;
-	margin-bottom: 20px;
+	padding: 22px;
 	border-bottom: 1px solid #1b1c23;
+}
+
+.beanWrapper:hover{
+    background-color: #1b1c23;
 }
 
 span.beanDesc{

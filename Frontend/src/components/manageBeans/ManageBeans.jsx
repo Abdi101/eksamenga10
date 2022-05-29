@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import SingleBean from './SingleBean';
+import CreateNewBean from './CreateNewBean';
 import { makeRequest } from '../../api/requests';
 import Header from '../header/Header';
 import Navbar from '../navbar/Navbar';
@@ -35,6 +36,44 @@ const ManageBeans = (props) => {
         getBeans();
     }, [])
 
+    const createBeans = async (beanData) => {
+        let payload = {
+            apiEndpoint: `/beans/`,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': `Bearer ${token}`,
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: {
+                brand: beanData.brand,
+                countryOfOrigin: beanData.countryOfOrigin,
+                description: beanData.description,
+                name: beanData.name,
+                price: parseInt(beanData.price),
+                roastProfile: beanData.roastProfile,
+                roastType: beanData.roastType
+            }
+        }
+        //console.log(payload);
+        makeRequest(payload, (err, data) => {
+            if (data) {
+                setError(null);
+                console.log(data);
+                getBeans();
+            } else {
+                //console.log(err);
+                switch (typeof err.error) {
+                    case "object":
+                        setError(err.error.message)
+                        break;
+                    case "string":
+                        setError(err.error)
+                        break;
+                }
+            }
+        });
+    }
 
     const updateBeans = async (beanData) => {
         let payload = {
@@ -106,7 +145,7 @@ const ManageBeans = (props) => {
     }
 
     return (
-        <div>{console.log("rednered")}
+        <div>
             <Header />
             {
                 token &&
@@ -120,7 +159,7 @@ const ManageBeans = (props) => {
             }
             <div className="container neumorphism-card">
             <div className="beansList">
-            <SingleBean/>
+            <CreateNewBean create={createBeans}/>
             {menuItems.map(content => (
                 <SingleBean key={content._id} data={content} isAdmin={isAdmin} onClick={updateBeans} delete={deleteBeans}/>
             ))}

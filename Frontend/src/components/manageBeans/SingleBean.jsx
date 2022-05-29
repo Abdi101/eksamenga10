@@ -7,6 +7,7 @@ const SingleBean = (props) => {
     const [modalVisible,setModalVisible] = useState(false);
     const [delModalVisible,setDelModalVisible] = useState(false);
     const newData = props.data;
+    const editModalTitle = "Edit bean";
     useEffect(() => {
         setIsAdmin(props.isAdmin);
     }, []);
@@ -37,7 +38,7 @@ const SingleBean = (props) => {
         <button className="beanButton edit" onClick={() => {setModalVisible(true)}}>edit</button>
         <button className="delete beanButton" onClick={() => {setDelModalVisible(true)}}>delete</button>
         {/*<button className="beanButton delete">delete</button>*/}
-        {modalVisible && <EditBeanModal closeModal={setModalVisible} data={newData} onClick={handleEdit}/>}
+        {modalVisible && <EditBeanModal closeModal={setModalVisible} data={newData} onClick={handleEdit} title={editModalTitle}/>}
         {delModalVisible && <ConfirmDeleteModal closeModal={setDelModalVisible} deleteBeans={handleDelete}/>}
         </div>
         </>
