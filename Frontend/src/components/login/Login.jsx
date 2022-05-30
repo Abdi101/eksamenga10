@@ -84,7 +84,7 @@ function Login() {
                     <input
                         type="password"
                         autoComplete="false"
-                        placeholder="3 characters min-length"
+                        placeholder="password"
                         value={password}
                         onChange={handleInputChange}
                     />

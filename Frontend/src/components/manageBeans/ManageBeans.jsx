@@ -159,7 +159,7 @@ const ManageBeans = (props) => {
             }
             <div className="container neumorphism-card">
             <div className="beansList">
-            <CreateNewBean create={createBeans}/>
+            {isAdmin === "true" && <CreateNewBean create={createBeans}/>}
             {menuItems.map(content => (
                 <SingleBean key={content._id} data={content} isAdmin={isAdmin} onClick={updateBeans} delete={deleteBeans}/>
             ))}

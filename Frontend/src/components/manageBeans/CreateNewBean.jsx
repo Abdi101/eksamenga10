@@ -25,7 +25,6 @@ const CreateNewBean = (props) => {
         </div>
         <div className="beanButtonWrapper">
         <button style={{fontWeight: "bold", marginBottom: "0"}} className="beanButton edit" onClick={() => {setModalVisible(true)}}>+</button>
-        {/*<button className="beanButton delete">delete</button>*/}
         {modalVisible && <EditBeanModal closeModal={setModalVisible} onClick={handleEdit} title={editModalTitle}/>}
         </div>
         </>

@@ -50,9 +50,9 @@ const CoffeeInfo = (props) => {
             <ul>
                 <li><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
                 <li><span>Time </span><Moment format="HH:mm">{brewedAt}</Moment></li>
-                <li><span>Liters brewed </span>{litersBrewed}L</li>
+                <li><span>Liters brewed </span>{litersBrewed!="Unknown" ? (litersBrewed+"L"): litersBrewed}</li>
                 <li><span>Type of coffee </span>{typeOfCoffee}</li>
-                <li><span>Coffee left </span>{litresOfWater}L</li>
+                <li><span>Coffee left </span>{litresOfWater!="Unknown" ? (litresOfWater+"L"): litresOfWater}</li>
                 <li>
                     <span>Status </span>
                     {/* Option a - declarative with JSX */}

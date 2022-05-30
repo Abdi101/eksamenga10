@@ -41,7 +41,7 @@ module.exports = {
 
       // Check if a user exist in the database
       if (!user) {
-        return res.status(404).json("User not found!. Please create an account.");
+        return res.status(404).json({ error: "User not found!. Please create an account."});
       }
 
       // Decrypt pasword

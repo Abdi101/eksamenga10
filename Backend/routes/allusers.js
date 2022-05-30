@@ -22,7 +22,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 })
 
 // Update user
-router.put("/update/:id", verifyTokenAndAdmin, async (req, res) => {
+router.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
   const userId = req.params.id;
   const userData = req.body;
   try {

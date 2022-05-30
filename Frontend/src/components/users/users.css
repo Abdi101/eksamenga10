@@ -24,28 +24,31 @@ tbody {
     border-collapse: collapse;
 }
 
-td, th{
+td,
+th {
     padding: 10px;
 }
 
-.userButton{
+.userButton {
     padding: 3px 8px;
     margin-right: 8px;
     outline: none;
     background-color: unset;
     cursor: pointer;
 }
+
 .delete {
     color: red;
     border: 1px solid red;
 
 }
-.delete:hover{
+
+.delete:hover {
     background-color: red;
     color: white;
 }
 
-.view:hover{
+.view:hover {
     background-color: green;
 }
 
@@ -54,18 +57,140 @@ td, th{
     border: 1px solid dodgerblue;
 }
 
-.edit:hover{
+.edit:hover {
     background-color: dodgerblue;
     color: white;
 }
 
-.cancel{
-  background-color: #2b2c38;
-  border: 1px solid #2b2c38;
-  color: #f6f6f6;  
+.cancel {
+    background-color: #2b2c38;
+    border: 1px solid #2b2c38;
+    color: #f6f6f6;
 }
 
-.cancel:hover{
-  background-color: black;
-  border-color: black;
+.cancel:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.switch {
+    text-align: center !important;
+    width: 50px;
+    height: 26px;
+    display: inline-block;
+    position: relative;
+}
+
+.labelText {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.switchWrapper {
+    width: fit-content;
+}
+
+.switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 17px;
+}
+
+.slider:before {
+    position: absolute;
+    border-radius: 50%;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.2s ease;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+input:checked+.slider {
+    background-color: green;
+}
+
+.newUserButton {
+    width: 100%;
+    background-color: #1b1c23;
+    border: 1px solid dodgerblue;
+    color: dodgerblue;
+    cursor: pointer;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+#addNewUser{
+    padding: 0;
+}
+
+.newUserButton:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+
+.newUserButton:active{
+    transform: scale(1.005);
+}
+
+
+.circle{
+  border:2px solid dodgerblue;
+  background-color: dodgerblue;
+  box-sizing: border-box;
+  width:17px;
+  height:17px;
+  border-radius:100%;
+  position:relative;
+  margin:4px;
+  display:inline-block;
+  vertical-align:middle;
+}
+.circle.plus:before,
+.circle.plus:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:#1b1c23;
+}
+.circle.plus:before{
+    width: 3px;
+    margin: 1px auto;
+}
+.circle.plus:after{
+    margin: auto 1px;
+    height: 3px;
+}
+
+.newUserButton:hover .circle{
+    background-color: white;
+    border-color: white;
+}
+
+.newUserButton:hover .circle.plus:before,
+.newUserButton:hover .circle.plus:after{
+   background: dodgerblue; 
 }
