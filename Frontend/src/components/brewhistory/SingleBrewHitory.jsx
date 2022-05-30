@@ -9,12 +9,12 @@ const SingleBrewHistory = () => {
             justifyContent: "center",
             flexDirection: "row",
             marginBottom: "15px",
+            fontSize: "1.3rem"
         }}>
             <div style={{
                 marginRight: "10px"
             }}>28/02/2022</div>
             <div style={{
-                backgroundColor: "#ccc",
                 width: "100%",
                 // backgroundColor: "#eee",
                 padding: "20px",

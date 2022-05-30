@@ -1,9 +1,63 @@
 .containerInner {
     width: 50%;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.ratingWrapper{
+    display: flex;
     margin-bottom: 15px;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.ratingInfo{
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+.ratingButton{
+    color: #f6f6f6;
+    margin-left: 14px;
+    padding: 0 15px;
+    background-color: #2b2c38;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: none;   
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; 
+}
+.ratingButton:hover{
+    transform: scale(1.05);
+    background-color: black;
+}
+
+.ratingButton:active{
+    transform: none;
+}
+.rightAlign{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+#newRating{
+    width: 148px;
+    font-size: unset;
+}
+
+.secondaryButton{
+    border: 2px solid #444;
+    color: #444;
+    background-color: unset;
+    padding: 8px 13px;
+}
+
+.secondaryButton:hover{
+    border-color: red;
+    color: red;
+    background-color: unset;
 }

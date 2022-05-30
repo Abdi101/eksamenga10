@@ -6,14 +6,14 @@ import Navbar from '../navbar/Navbar';
 import Header from '../header/Header';
 
 function CoffeeDisplay(props) {
-
+    console.log(props);
     const userToken = localStorage.getItem('userToken');
 
     return (
         <div>
             <Header />
             {userToken && <div style={{
-                backgroundColor: '#eee',
+                backgroundColor: '#1b1c23',
                 width: '100%',
                 margin: 0
             }}>

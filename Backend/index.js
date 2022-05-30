@@ -10,6 +10,7 @@ const brewRoute = require("./routes/brews");
 // const brewRouter = require("./routes/brewRoute");
 const coffeeBeanRouter = require("./routes/coffeeBeanRoute");
 const coffeeBeanRoute = require("./routes/coffeebeans");
+const ratingRoute = require("./routes/ratingRoute");
 
 
 // env variables'
@@ -32,9 +33,10 @@ app.get('/api', (req, res) => {
 // Routes MiddleWare
 app.use('/api/users', userRouter);
 app.use('/api/allusers', userRouterAuth);
-app.use('/api/coffeebeans', coffeeBeanRoute);
+app.use('/api/beans', coffeeBeanRoute);
 app.use('/api/beans', coffeeBeanRouter);
 app.use('/api/brews', brewRoute);
+app.use('/api/ratings', ratingRoute);
 // app.use('/api/brews',brewRouter);
 
 // Connect to mongodb database

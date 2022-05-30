@@ -15,13 +15,11 @@ const CoffeeControl = (props) => {
     const [error, setError] = useState(null);
     const [brew, setBrew] = useState({
         coffeeBeanId: null,
-        grindingSettings: null,
-        gramsOfCoffee: null,
+        grindingSettings: "",
+        gramsOfCoffee: "",
         litresOfWater: null,
-        userVotes: [],
-        typeOfCoffee: null
+        typeOfCoffee: ""
     });
-
     const navigate = useNavigate();
 
     const token = localStorage.getItem("userToken")
@@ -32,7 +30,8 @@ const CoffeeControl = (props) => {
             apiEndpoint: '/beans',
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'token': `Bearer ${token}`
             },
         }
 
@@ -41,8 +40,9 @@ const CoffeeControl = (props) => {
         makeRequest(payload, (err, data) => {
             if (data) {
                 setIsLoading(false);
-                setError(null)
-                setMenuItems(data);
+                setError(null);
+                setMenuItems(data.coffeeBeans);
+                console.log(menuItems);
             } else {
                 setIsLoading(false);
                 console.log(err);
@@ -58,7 +58,6 @@ const CoffeeControl = (props) => {
         });
     }, [])
 
-
     const handleOnClick = (newLiters) => {
         console.log("CoffeeControl (handleClick): ", newLiters);
         setBrew({ ...brew, litresOfWater: newLiters, litersBrewed: newLiters })
@@ -73,7 +72,7 @@ const CoffeeControl = (props) => {
         <div>
             <Header />
             {token && <div style={{
-                backgroundColor: '#eee',
+                backgroundColor: '#1b1c23',
                 width: '100%',
                 margin: 0
             }}>
@@ -81,6 +80,7 @@ const CoffeeControl = (props) => {
             </div>}
             <h1>Prepare Coffee</h1>
             {error && <p className="error-message">{error}</p>}
+            <div className="container neumorphism-card">
             <div className="CoffeeControl">
                 <Thermos {...props} />
 
@@ -91,7 +91,7 @@ const CoffeeControl = (props) => {
                                 {
                                     list: menuItems,
                                     option: "Type of Coffee",
-                                    placeholder: "Espresso",
+                                    placeholder: "choose type",
                                     attribute: "coffeeBeanId",
                                     beanName: "typeOfCoffee"
                                 }}
@@ -106,7 +106,7 @@ const CoffeeControl = (props) => {
                                 {
                                     list: [1, 2, 4, 5, 6, 7],
                                     option: "Choose Grinding Level",
-                                    placeholder: "3",
+                                    placeholder: "Choose Grinding Level",
                                     attribute: "grindingSettings",
                                     beanName: "typeOfCoffee"
                                 }}
@@ -125,15 +125,16 @@ const CoffeeControl = (props) => {
                                     value={brew.gramsOfCoffee}
                                     autoFocus={true}
                                     onChange={(e) => { setBrew({ ...brew, gramsOfCoffee: e.target.value }) }}
+                                    style={{backgroundColor: "#2b2c38", border: "1px solid #343543", color: "#f6f6f6"}}
                                 />
                             </label>
                         )
                     }
 
 
-                    <CoffeeButton litersToBrew='2.2' onClick={handleOnClick} />
+                   {brew.gramsOfCoffee && <><CoffeeButton litersToBrew='2.2' onClick={handleOnClick} />
                     <CoffeeButton litersToBrew='1.1' onClick={handleOnClick} />
-                    <CoffeeButton litersToBrew='0.5' onClick={handleOnClick} />
+                    <CoffeeButton litersToBrew='0.5' onClick={handleOnClick} /> </>}
                     {/* {
                         brew.gramsOfCoffee && (
                             <>
@@ -145,13 +146,14 @@ const CoffeeControl = (props) => {
                     } */}
 
                 </div>
-                <p>
+                <p style={{"gridRow": "2 / 3", "gridColumn": "1 / 3"}}>
                     <Link to="/">
                         View Brewed Coffee Info &rarr;
                     </Link>
 
                 </p>
             </div>
+        </div>
         </div>
     );
 }

@@ -15,20 +15,23 @@ function Header() {
         window.location.reload();
     }
 
-    const location = useLocation().pathname.split("/")[1] || "Dashboard"
-
 
     return (
         <header style={{ position: "relative" }}>
             <h3>
-                <Link to="/" className="logo">{location}</Link>
+                <Link to="/" className="logo">CoffeDash</Link>
             </h3>
-
+            <div className="rightAlign">
             <nav className="nav-bar">
                 <ul>
+                    {isAdmin === "true" && <>
+                        <li><Link to="/users">Users</Link></li>  
+                    </>}
+
                     {
                         userToken ? (
                             <>
+                                <li><Link to="/coffee-beans">Coffee beans</Link></li>
                                 <li onClick={handleLogout}>
                                     <Link to="/">Logout</Link>
                                 </li>
@@ -47,31 +50,7 @@ function Header() {
 
                 </ul>
             </nav>
-
-            {isAdmin === "true" && <div style={{
-                position: "absolute",
-                right: "30px",
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                marginRight: "20px"
-            }}>
-                <Link to="/users"
-                    style={{
-                        textDecoration: "none",
-                    }}
-                >
-                    <button className="button-admin">Add Users</button>
-                </Link>
-                <Link to="/"
-                    style={{
-                        borderBottom: "1px solid transparent",
-                    }}
-                >
-                    <button className="button-admin">Manage Beans</button>
-                </Link>
-            </div>}
-
+            </div>
         </header>
     )
 }

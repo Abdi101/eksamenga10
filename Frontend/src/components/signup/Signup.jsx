@@ -59,9 +59,9 @@ function SignUp({ updateToken }) {
         <>
             <Header />
             <h1>Create an Account</h1>
-            <form>
+            <form className="signUpForm">
                 {error && <p className="error-message">{error}</p>}
-                <label>
+                <label className="loginLabel">
                     <span>Email</span>
                     <input
                         type="email"
@@ -72,7 +72,7 @@ function SignUp({ updateToken }) {
                     />
                 </label>
 
-                <label>
+                <label className="loginLabel">
                     <span>Password</span>
                     <input
                         type="password"

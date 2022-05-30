@@ -28,7 +28,7 @@ const CoffeeInfo = (props) => {
     //const CoffeeInfo = ({ brewedAt=new Date(), litersBrewed='Unknown', typeOfCoffee='Unknown', coffeeLeft='Unknown' }) => {
 
     // storing props in local variables and giving them default values
-    const { brewedAt = new Date(), litersBrewed = 'Unknown', typeOfCoffee = 'Unknown', coffeeLeft = 'Unknown' } = { ...props };
+    const { brewedAt = new Date(), litersBrewed = 'Unknown', typeOfCoffee = 'Unknown', litresOfWater = 'Unknown' } = { ...props };
     console.log('props', props)
     const calendarStrings = {
         lastDay: '[Yesterday] ',
@@ -48,24 +48,12 @@ const CoffeeInfo = (props) => {
     return (
         <div className="CoffeeInfo">
             <ul>
-                <li style={{
-                    color: "black",
-                }} ><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
-                <li style={{
-                    color: "black",
-                }} ><span>Time </span><Moment format="hh:mm[h]">{brewedAt}</Moment></li>
-                <li style={{
-                    color: "black",
-                }} ><span>Liters brewed </span>{litersBrewed}</li>
-                <li style={{
-                    color: "black",
-                }} ><span>Type of coffee </span>{typeOfCoffee}</li>
-                <li style={{
-                    color: "black",
-                }} ><span>Coffee left </span>{coffeeLeft}</li>
-                <li style={{
-                    color: "black",
-                }} >
+                <li><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
+                <li><span>Time </span><Moment format="HH:mm">{brewedAt}</Moment></li>
+                <li><span>Liters brewed </span>{litersBrewed}L</li>
+                <li><span>Type of coffee </span>{typeOfCoffee}</li>
+                <li><span>Coffee left </span>{litresOfWater}L</li>
+                <li>
                     <span>Status </span>
                     {/* Option a - declarative with JSX */}
                     {/* {diff < 90 && `Hot`}

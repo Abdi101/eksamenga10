@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import StarRating from "../starrating/StarRating";
 import { Star, StarBorder } from '@mui/icons-material';
 
 function ViewStars(props) {
@@ -18,79 +19,42 @@ function ViewStars(props) {
                 margin: "auto",
                 alignItems: "center",
                 justifyContent: "center",
-            }}>
+            }} className="container neumorphism-card">
                 <h2 style={{ textAlign: "left" }}>Brew Recipe</h2>
                 <div style={{
-                    backgroundColor: "#ccc",
                     width: "100%",
                     padding: "20px",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "center",
                 }}>
                     <div style={{
                         flex: "1",
                         display: "flex",
-                        marginBottom: "20px"
+                        marginBottom: "20px",
+                        fontSize: "1.3rem",
+                        justifyContent: "space-around",
                     }}>
-                        <span>Coffee:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>Evergood Classic</span>
-                        <span>Grinding Settings:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>7</span>
-                        <span>Water:</span>
-                        <span style={{
-                            fontWeight: 700,
-                            marginRight: "10px",
-                            marginLeft: "3px"
-                        }}>1.5l</span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><Star /></span>
-                        <span><StarBorder /></span>
+                        <span><b>Coffee: </b>{props.typeOfCoffee}</span>
+                        <span><b>Grinding Settings: </b>{props.grindingSettings}</span>
+                        <span><b>Water: </b>{props.litersBrewed}L</span>
+                        <StarRating/>
 
                     </div>
                 </div>
 
                 {userToken &&
-                    <div>
-                        <button
-                            onClick={() => setShow(!show)}
-                            style={{
-                                width: "200px",
-                                backgroundColor: "black",
-                                color: "white",
-                                padding: "10px 15px",
-                                fontSize: "17px",
-                                cursor: "pointer",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "flex-start",
-                                marginTop: "20px",
-                                marginBottom: "15px",
-                                margin: "auto",
-                                marginTop: "20px"
-                            }}>Rate This Brew</button>
+                    <div style={{display: "flex", flexDirection: "row", width: "inherit", justifyContent: "center"}}>
                         {show && <input
-                            type="text"
-                            placeholder="Rate us"
+                            type="number"
+                            min="1" max="5"
+                            placeholder="1-5"
                             style={{
-                                width: '90%',
                                 padding: "10px",
-                                margin: "auto",
                                 textAlign: "center",
-                                marginBottom: "20px",
-                                marginTop: "20px",
+                                width: "unset"
                             }}
                         />}
+                        <button onClick={() => setShow(!show)} className="ratingButton">Rate This Brew</button>
                     </div>
                 }
             </div>

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #EDE5D0;
+  background-color: #07080d;
   min-height: 100vh;
   /* padding: 2rem; */
 }
@@ -12,13 +12,17 @@ main {
   flex-direction: column;
 }
 
+h1, h2, h3{
+  color: #f6f6f6;
+}
+
 #examples {
   display: flex;
   flex-direction: column;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1300px;
   width: 100%;
   margin: 1rem auto;
   padding: 2rem;
@@ -42,8 +46,8 @@ main {
 }
 
 .neumorphism-card {
-  box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.5),
-    -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
-  border-radius: 50px;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.25));
+  border-radius: 25px;
+  margin-bottom: 40px;
+  background-color: #0f1015;
+  box-shadow: 5px 5px 10px #00000030;
 }

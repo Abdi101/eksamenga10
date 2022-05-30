@@ -1,16 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userVoteSchema = new Schema({
-  userId: { 
-    type: String, 
-    ref: "User" 
-  },
-});
-
 const BrewSchema = new Schema({
   coffeeBeanId: { 
-    type: Number, 
+    type: mongoose.Schema.Types.ObjectId,
     ref: "CoffeeBean" 
   },
   grindingSettings: {
@@ -24,8 +17,7 @@ const BrewSchema = new Schema({
   gramsOfCoffee: {
     type: Number,
     required: true
-  },
-  userVotes: [userVoteSchema],
-});
+  }
+}, { timestamps: true });
 
 module.exports = mongoose.model("Brew", BrewSchema);

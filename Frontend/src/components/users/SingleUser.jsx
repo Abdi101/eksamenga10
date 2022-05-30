@@ -8,28 +8,11 @@ function Users(props) {
 
     const userToken = localStorage.getItem('userToken');
 
-    const [values, setValues] = useState([])
-    const [error, setError] = useState("")
+    const [id, setId] = useState("");
+    const [error, setError] = useState("");
 
 
-    useEffect(() => {
-        const getAllUsers = async () => {
-            try {
-                const res = await axios.get("http://localhost:3001/api/allusers", {
-                    headers: {
-                        token: `Bearer ${userToken}`
-                    }
-                })
-                // console.log(res.data)
-                setValues(res.data)
-                // console.log(object)
-            } catch (err) {
-                setError(err)
-                console.log(err);
-            }
-        }
-        getAllUsers()
-    }, [])
+    useEffect(() => {}, [])
     // console.log(values)
 
     const handleDelete = async () => {
@@ -47,15 +30,15 @@ function Users(props) {
 
             {
                 userToken && <div style={{
-                    backgroundColor: 'rgb(27, 28, 35)',
+                    backgroundColor: '#eee',
                     width: '100%',
                     margin: 0
                 }}>
                     <Navbar />
                 </div>
             }
-            <h1>Users</h1>
-            <div className='userData container neumorphism-card' id="top-container">
+
+            <div className='userData'>
                 <table>
                     <thead>
                         <tr>
@@ -73,8 +56,9 @@ function Users(props) {
                                     <td>{value.email}</td>
                                     <td>Active</td>
                                     <td>
-                                        <button className='delete userButton' onClick={handleDelete}>Delete</button>
-                                        <button className='edit userButton'>Edit</button>
+                                        <button className='delete' onClick={handleDelete}>Delete</button>
+                                        <button className='view'>View</button>
+                                        <button className='edit'>Edit</button>
                                     </td>
                                 </tr>
                             ))
