@@ -16,8 +16,7 @@ const {rating} = require('../helpers/schemas/rating');
 
 router.patch('/:id',verifyTokenAndEmployee, validateRequestBody(rating), editRating);
 router.get('/', verifyTokenAndEmployee, getMyRatings);
-router.get('/all', verifyTokenAndEmployee, getAllRatings);
 router.post('/', verifyTokenAndEmployee, validateRequestBody(rating), createRating);
-
+router.get('/all', verifyTokenAndEmployee, getAllRatings);
 
 module.exports = router;

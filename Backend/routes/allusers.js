@@ -22,7 +22,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
 })
 
 // Update user
-router.put("/update/:id", verifyTokenAndAdmin, async (req, res) => {
+router.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
   const userId = req.params.id;
   const userData = req.body;
   try {
@@ -46,7 +46,7 @@ router.get("/:id", verifyTokenAndAdmin, async (req, res) => {
 })
 
 // Delete user by ID
-router.delete("/remove/:id", verifyTokenAndAdmin, async (req, res) => {
+router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 
   try {
     await User.findByIdAndDelete(req.params.id)

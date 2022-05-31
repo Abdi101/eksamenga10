@@ -2,72 +2,47 @@ import Navbar from '../navbar/Navbar';
 import "./users.css"
 import Header from "../header/Header";
 import { useEffect, useState } from 'react';
+import EditUserModal from './EditUserModal';
+import ConfirmDeleteModal from './ConfirmDeleteModal';
 import axios from 'axios';
 
-function Users(props) {
-
+function SingleUser(props) {
+    const data = props.data;
+    const editModalTitle = "Edit user";
     const userToken = localStorage.getItem('userToken');
 
     const [id, setId] = useState("");
     const [error, setError] = useState("");
-
+    const [modalVisible,setModalVisible] = useState(false);
+    const [delModalVisible,setDelModalVisible] = useState(false);
 
     useEffect(() => {}, [])
-    // console.log(values)
 
-    const handleDelete = async () => {
-        // setValues(values.filter(value => value.id !== id))
-        await axios.delete(`http://localhost:3001/remove/${values._id}`, {
-            headers: {
-                token: `Bearer ${userToken}`
-            }
-        })
+    const handleEdit = (formData) => {
+        console.log(formData);
+            props.onClick(formData);
+    }
+
+    const handleDelete = () => {
+            setDelModalVisible(false);
+            props.deleteUser(data._id);
     }
 
     return (
-        <div>
-            <Header />
-
-            {
-                userToken && <div style={{
-                    backgroundColor: '#eee',
-                    width: '100%',
-                    margin: 0
-                }}>
-                    <Navbar />
-                </div>
-            }
-
-            <div className='userData'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Email</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            values.map((value, id) => (
-                                <tr key={id}>
-                                    <td>{value._id}</td>
-                                    <td>{value.email}</td>
-                                    <td>Active</td>
-                                    <td>
-                                        <button className='delete' onClick={handleDelete}>Delete</button>
-                                        <button className='view'>View</button>
-                                        <button className='edit'>Edit</button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <>
+            <tr key={id}>
+                <td>{data.email}</td>
+                <td>{data.isAdmin ? "yes" : "no"}</td>
+                <td>
+                    <button className='delete userButton' onClick={() => {setDelModalVisible(true)}}>Delete</button>
+                    <button className='edit userButton' onClick={() => {setModalVisible(true)}}>Edit</button>
+                </td>
+            </tr>
+            {modalVisible && <EditUserModal closeModal={setModalVisible} title={editModalTitle} data={data} onClick={handleEdit}/>}
+            {delModalVisible && <ConfirmDeleteModal closeModal={setDelModalVisible} deleteUser={handleDelete}/>}
+        </>
     )
 }
 
-export default Users;
+export default SingleUser;
+    

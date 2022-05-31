@@ -22,7 +22,6 @@ function MyRatings(props) {
                     token: `Bearer ${userToken}`
                 }
             })
-            //console.log(res.data);
             setValues(res.data);
         } catch (err) {
             setError(err);
@@ -49,7 +48,7 @@ function MyRatings(props) {
                 userId: ratingData.userId
             }
         }
-        //console.log(payload);
+
         makeRequest(payload, (err, data) => {
             if (data) {
                 setError(null);
