@@ -6,17 +6,19 @@ function ViewStars(props) {
     const userToken = localStorage.getItem('userToken');
 
     const [show, setShow] = useState(false);
+    const [rateValue, setRateValue] = useState('');
 
-
+    const handleRate = () =>{
+        props.handleRating(rateValue);
+        setShow(!show);
+    }
 
     return (
         <>
             <div style={{
                 flexDirection: "column",
                 display: "flex",
-                width: "60%",
-                marginBottom: "40px",
-                margin: "auto",
+                marginBottom: "4rem",
                 alignItems: "center",
                 justifyContent: "center",
             }} className="container neumorphism-card">
@@ -34,10 +36,11 @@ function ViewStars(props) {
                         fontSize: "1.3rem",
                         justifyContent: "space-around",
                     }}>
-                        <span><b>Coffee: </b>{props.typeOfCoffee}</span>
-                        <span><b>Grinding Settings: </b>{props.grindingSettings}</span>
-                        <span><b>Water: </b>{props.litersBrewed}L</span>
-                        <StarRating/>
+                        <span><b>Coffee: </b>{props.coffeeInfo.typeOfCoffee}</span>
+                        <span><b>Grinding Settings: </b>{props.coffeeInfo.grindingSettings}</span>
+                        <span><b>Water: </b>{props.coffeeInfo.litersBrewed>0 ? props.coffeeInfo.litersBrewed+"L" : props.coffeeInfo.litersBrewed}</span>
+                        {console.log()}
+                        <StarRating {...props.rating}/>
 
                     </div>
                 </div>
@@ -48,13 +51,14 @@ function ViewStars(props) {
                             type="number"
                             min="1" max="5"
                             placeholder="1-5"
+                            onChange={(e) => { setRateValue( e.target.value ) }}
                             style={{
                                 padding: "10px",
                                 textAlign: "center",
                                 width: "unset"
                             }}
                         />}
-                        <button onClick={() => setShow(!show)} className="ratingButton">Rate This Brew</button>
+                        <button onClick={handleRate} className="ratingButton">Rate This Brew</button>
                     </div>
                 }
             </div>

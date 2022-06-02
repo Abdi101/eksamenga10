@@ -28,8 +28,8 @@ const CoffeeInfo = (props) => {
     //const CoffeeInfo = ({ brewedAt=new Date(), litersBrewed='Unknown', typeOfCoffee='Unknown', coffeeLeft='Unknown' }) => {
 
     // storing props in local variables and giving them default values
-    const { brewedAt = new Date(), litersBrewed = 'Unknown', typeOfCoffee = 'Unknown', litresOfWater = 'Unknown' } = { ...props };
-    console.log('props', props)
+    const { brewedAt = new Date(), litersBrewed = '', typeOfCoffee = 'Unknown', litresOfWater = '' } = { ...props };
+    //console.log('props', props)
     const calendarStrings = {
         lastDay: '[Yesterday] ',
         sameDay: '[Today]',
@@ -40,7 +40,7 @@ const CoffeeInfo = (props) => {
 
 
     const diff = moment().diff(brewedAt, 'minutes');
-    console.log("dif - ", diff);
+    //console.log("dif - ", diff);
     //Less than 90' -> hot
     //90' to 150' -> warm
     // >150' -> cold
@@ -48,13 +48,13 @@ const CoffeeInfo = (props) => {
     return (
         <div className="CoffeeInfo">
             <ul>
-                <li><span>Brewed </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
-                <li><span>Time </span><Moment format="HH:mm">{brewedAt}</Moment></li>
-                <li><span>Liters brewed </span>{litersBrewed}L</li>
-                <li><span>Type of coffee </span>{typeOfCoffee}</li>
-                <li><span>Coffee left </span>{litresOfWater}L</li>
+                <li><span>Brewed: </span><Moment calendar={calendarStrings}>{brewedAt}</Moment></li>
+                <li><span>Time: </span><Moment format="HH:mm">{brewedAt}</Moment></li>
+                <li><span>Liters brewed: </span>{(litersBrewed!=null) ? (litersBrewed+'L') : 'Unkown'}</li>
+                <li><span>Type of coffee: </span>{typeOfCoffee}</li>
+                <li><span>Coffee left: </span>{(litresOfWater.length>0) ? (litresOfWater+'L') : 'Unkown'}</li>
                 <li>
-                    <span>Status </span>
+                    <span>Status: </span>
                     {/* Option a - declarative with JSX */}
                     {/* {diff < 90 && `Hot`}
                     {diff >= 90 && diff < 150 && `Warm`}

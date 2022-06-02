@@ -5,7 +5,8 @@ const {
     createRating,
     editRating,
     getMyRatings,
-    getAllRatings
+    getAllRatings,
+    getBrewRatings
 } = require('../controllers/ratingController');
 
 // import helper functions
@@ -14,6 +15,7 @@ const {verifyToken, verifyTokenAndEmployee} = require('../helpers/webToken');
 // import validation schemas
 const {rating} = require('../helpers/schemas/rating');
 
+router.get('/brew/', verifyTokenAndEmployee, getBrewRatings);
 router.patch('/:id',verifyTokenAndEmployee, validateRequestBody(rating), editRating);
 router.get('/', verifyTokenAndEmployee, getMyRatings);
 router.post('/', verifyTokenAndEmployee, validateRequestBody(rating), createRating);

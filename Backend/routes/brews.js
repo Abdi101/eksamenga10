@@ -34,11 +34,26 @@ router.post("/", verifyTokenAndEmployee, async (req, res) => {
 })
 
 // Get all brews
-router.get("/", verifyTokenAndEmployee, async (req, res) => {
+router.get("/", async (req, res) => {
     try {
-        const brew = await Brew.find({});
+        const brew = await Brew.find({}).populate('coffeeBeanId').sort({ createdAt: 'desc' });
         res.status(200).json({
             message: "All brews",
+            brew
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to get all brews",
+            error
+        });
+    }
+})
+
+// Get newest brew
+router.get("/new", async (req, res) => {
+    try {
+        const brew = await Brew.find({}).populate('coffeeBeanId').sort({ createdAt: 'desc' }).limit(1)
+        res.status(200).json({
             brew
         });
     } catch (error) {
@@ -153,35 +168,5 @@ router.get("/topgl", async (req, res) => {
 },
 )
 
-
-// Vote brew
-router.get("/vote/:id", verifyTokenAndEmployee, async (req, res) => {
-    const brewId = req.params.id;
-    // check if brew id exists
-    let brew = await Brew.findOne({ _id: brewId })
-    if (brew) {
-        let userVotes = brew.userVotes;
-        // check if user already voted
-        if (userVotes) {
-            let userIds = userVotes.map((vote) => String(vote.userId));
-            if (userIds.includes(req.userId)) {
-                res.status(400).json({ error: 'User already voted for brew. Vote not recorded.' })
-            } else {
-                Brew.updateOne({ _id: brewId }, { $push: { userVotes: { userId: req.userId } } })
-                    .then((brew) => {
-                        res.status(200).json({ message: 'User vote successfully recorded.' })
-                    })
-                    .catch((err) => {
-                        res.status(500).json({ error: 'Failed to add user vote', err });
-                    })
-            }
-        } else {
-            res.json({ error: 'Something failed...' })
-        }
-
-    } else {
-        res.status(404).json({ error: `Coffee Brew of ID ${brewId} not found.` });
-    }
-})
 
 module.exports = router;

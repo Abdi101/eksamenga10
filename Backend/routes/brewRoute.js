@@ -22,7 +22,6 @@ router.post('/',[verifyTokenAndEmployee, validateRequestBody(brew), createBrew])
 router.get('/levels?', queryTopFiveGrindingLevels)
 router.get('/:id', getBrewById);
 router.patch('/:id', [verifyTokenAndEmployee, validateRequestBody(updateBrew), updateBrewById]);
-router.patch('/vote/:id', [verifyTokenAndEmployee, voteBrew]);
 router.delete('/:id', [verifyTokenAndEmployee, deleteBrewById]);
 
 module.exports = router;

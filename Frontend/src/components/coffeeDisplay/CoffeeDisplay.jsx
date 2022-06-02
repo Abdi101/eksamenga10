@@ -6,8 +6,10 @@ import Navbar from '../navbar/Navbar';
 import Header from '../header/Header';
 
 function CoffeeDisplay(props) {
-    console.log(props);
     const userToken = localStorage.getItem('userToken');
+    const handleRating = (value) => {
+        props.createRating(value);
+    }
 
     return (
         <div>
@@ -22,10 +24,10 @@ function CoffeeDisplay(props) {
 
             <h1>Thermos Status</h1>
             <div id="top-container" className="container neumorphism-card">
-                <Thermos {...props} />
-                <CoffeeInfo {...props} />
+                <Thermos {...props.coffeeInfo} />
+                <CoffeeInfo {...props.coffeeInfo} />
             </div>
-            <ViewStars {...props} />
+            <ViewStars {...props} handleRating={handleRating}/>
 
         </div>
     )

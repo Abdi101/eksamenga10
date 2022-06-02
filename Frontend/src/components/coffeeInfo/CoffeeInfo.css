@@ -1,8 +1,6 @@
 .CoffeeInfo {
     font-size: 2rem;
-    text-align: left;
-    font-weight: 600;
-    
+    text-align: left;    
 }
 
 .CoffeeInfo ul {
@@ -13,5 +11,5 @@
 
 
 .CoffeeInfo ul li span {
-    font-weight: 200;
+    font-weight: bold;
 }

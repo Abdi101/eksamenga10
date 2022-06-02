@@ -17,6 +17,20 @@ module.exports = {
       });
   },  
 
+  getBrewRatings: async (req, res) => {
+    console.log(req.query.brewId);
+    Rating.find({brewId: req.query.brewId})
+      .then((ratings) => {
+        if (ratings.length) {
+          res.status(200).json(ratings);
+        } else {
+          res.status(404).json({ message: "Sorry!, ratings not found." });
+        }
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err });
+      });
+  }, 
 
   createRating: async (req, res) => {
     const ratingData = new Rating({
@@ -57,7 +71,7 @@ module.exports = {
   },  
 
   getMyRatings: async (req, res) => {
-    Rating.find({ userId: req.query.userId }).populate('brewId')
+    Rating.find({ userId: req.query.userId }).populate({path: 'brewId', populate: {path: 'coffeeBeanId'}})
       .then((ratings) => {
         if (ratings.length) {
           console.log(ratings);
@@ -69,7 +83,6 @@ module.exports = {
       .catch((err) => {
         res.status(500).json({ error: err });
       });
-  }  
-
+  }
   
 };

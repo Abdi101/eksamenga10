@@ -3,68 +3,115 @@ import Header from "../header/Header";
 import "../myratings/myratings.css"
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
-import SingleBrewHistory from './SingleBrewHitory';
+import SingleBrewHistory from './SingleBrewHistory';
+import './BrewHistory.css';
+import { makeRequest } from '../../api/requests';
+
 
 const BrewHistory = () => {
 
-  const [brew, setBrew] = useState([]);
+  const [brews, setBrews] = useState([]);
+  const [ratings, setRatings] = useState([]);
+  const [ratedBrews, setRatedBrews] = useState([]);
+  const [update,setUpdate] = useState(null);
+  const userID = localStorage.getItem('userId');
+  const userToken = localStorage.getItem('userToken');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const getAllBrews = async () => {
-      const res = await axios.get("http://localhost:3001/api/brews", {
-        headers: {
-          token: `Bearer ${localStorage.getItem("userToken")}`
-        }
-      });
-      console.log(res.data)
-      setBrew(res.data.brew);
-    }
-    getAllBrews();
+    getAllBrewsAndRatings();
   }, []);
 
-  // Get average rating for all the brew
-  const [ratings, setRatings] = useState([])
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const getAllRatings = async () => {
-      const res = await axios.get("http://localhost:3001/api/ratings/all", {
-        headers: {
-          token: `Bearer ${localStorage.getItem("userToken")}`
-        }
-      });
-      console.log(res.data)
-      setRatings(res.data);
-    }
-    getAllRatings();
-  }, []);
-
-
-  // Get average rating for all the brews
-  const averageRating = (ratings) => {
-    let sum = 0;
-    let count = 0;
-    ratings.forEach(rating => {
-      sum += rating.rating;
-      count++;
-    });
-    return sum / count;
-  }
-
-  useEffect(() => {
-    averageRating(ratings);
-  }, [ratings]);
-
-  const brewsNotVotedFor = (ratings) => {
-    let brews = [];
-    brew.forEach(brew => {
-      if (!ratings.find(rating => rating.brewId === brew._id)) {
-        brews.push(brew);
+  const getAllBrewsAndRatings = async () => {
+    const brews = await axios.get("http://localhost:3001/api/brews",{
+      headers: {
+        token: `Bearer ${userToken}`
       }
     });
-    return brews;           
+
+    const ratings = await axios.get("http://localhost:3001/api/ratings/all", {
+      headers: {
+        token: `Bearer ${userToken}`
+      }
+    });
+    setBrews(brews.data.brew);
+    setRatings(ratings.data);
+    getAverage(brews.data.brew , ratings.data);
   }
 
+  // get the average rating for each brew
+  // loop through the brews as we check the ratings which are then added to the brew object
+  const getAverage = (brews,ratings)=>{
+    
+    let brewsArray = brews;
+    let ratingsArray = ratings;
+    
+    for(let brew of brewsArray){
+      let count = 0;
+      let totalRating = 0;
+      for(let rating of ratingsArray){
+        if(rating.brewId === brew._id){
+          count++;
+          totalRating += +rating.rating;
+        }
+      }
+
+      brew.rating = count ? Math.round(totalRating / count) : count;
+      count = 0;
+      totalRating = 0;
+    }
+
+    setRatedBrews(brewsArray);
+  }
+
+  const updateBrew = (data) =>{
+    console.log(data);
+   /* let brews = ratedBrews;
+    for(let brew of brews){
+      if(brew._id === id){
+        brew.rating = rating;
+      }
+    }
+    setRatedBrews(brews);
+    console.log(brews);
+    setUpdate(id);*/
+  }
+
+    const createRating = async (data) => {
+        console.log(data);
+        let payload = {
+            apiEndpoint: '/ratings/',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'token': `Bearer ${userToken}`,
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: {
+                brewId: data.brewID,
+                userId: userID,
+                rating: data.rating
+            }
+        }
+        console.log(payload);
+        makeRequest(payload, (err, data) => {
+            if (data) {
+                setError(null);
+                getAllBrewsAndRatings();
+            } else {
+                //console.log(err);
+                switch (typeof err.error) {
+                    case "object":
+                        setError(err.error.message)
+                        break;
+                    case "string":
+                        setError(err.error)
+                        break;
+                }
+            }
+        });
+    }
 
   return (
     <>
@@ -79,64 +126,15 @@ const BrewHistory = () => {
       </div>
       <h1>Brew history</h1>
       <div className="containerInner container neumorphism-card" style={{ marginTop: "20px", color: "#d9d9d9" }}>
-        <SingleBrewHistory />
-        <SingleBrewHistory />
-        <SingleBrewHistory />
-        <SingleBrewHistory />
+        {
+          ratedBrews && (
+            ratedBrews.map((brew,index)=>(
+              <SingleBrewHistory brew={brew} updateBrew={createRating} key={index}/>
+            ))
+          )
+        }
       </div>
-      <div style={{
-        margin: "20px auto",
-        width: "50%",
-        borderRadius: "10px",
-        textAlign: "center",
-        color: "#d9d9d9",
-        backgroundColor: "#1b1c23",
-        height: "auto"
-      }}>
-        <h2>Brews:</h2>
-        {/* <div>
-          {brew.reduce((a, b) => a + b.rating, 0) / brew.length}
-        </div> */}
-
-
-        {brew.map((brw, index) => (
-          <div key={index}>
-            <h3>{brw._id}</h3>
-          </div>
-        ))}
-
-
-        <h2>Average Ratings:</h2>
-        {/* <div>
-          {brew.reduce((a, b) => a + b.rating, 0) / brew.length}
-        </div> */}
-
-
-        {ratings.map((rating, index) => (
-          <div key={index}>
-            <h3>{rating.rating}</h3>
-          </div>
-        ))}
-
-
-        <h2>Brews Voted For:</h2>
-        {ratings.map((rating, index) => (
-          <div key={index}>
-            <h3>{rating.brewId}</h3>
-          </div>
-        ))}
-              
-        <h2>Brews Not Voted For:</h2>
-        {brewsNotVotedFor(ratings).map((brew, index) => (
-          <div key={index}>
-            <h3>{brew._id}</h3>
-          </div>
-        ))}
-
-        {/* {ratings.reduce((a, b) => a + b.ratings, 0) / ratings.length} */}
-      </div>
-
-
+      
     </>
   )
 }

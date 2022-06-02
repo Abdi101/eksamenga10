@@ -48,7 +48,7 @@ module.exports = {
   },
 
   getAllBrews: (req, res) => {
-    Brew.find({})
+    Brew.find({}).populate('coffeeBeanId')
       .then((brews) => {
         if (brews.length) {
           res.status(200).json(brews);
@@ -83,6 +83,7 @@ module.exports = {
       });
   },
 
+
   queryTopFiveGrindingLevels: (req, res) => {
     const { water, bean } = req.query;
     // Find the bean id
@@ -115,37 +116,6 @@ module.exports = {
     function getTopGrindingLevels(brews) {
       res.render('pages/grindingLevels', { brews });
     }
-  },
-
-  voteBrew: async (req, res) => {
-    const brewId = req.params.id;
-    // check if brew id exists
-    let brew = await Brew.findOne({ _id: brewId })
-    if (brew) {
-      let userVotes = brew.userVotes;
-      // check if user already voted
-      if (userVotes) {
-        let userIds = userVotes.map((vote) => String(vote.userId));
-        if (userIds.includes(req.userId)) {
-          res.status(400).json({ error: 'User already voted for brew. Vote not recorded.' })
-        } else {
-          Brew.updateOne({ _id: brewId }, { $push: { userVotes: { userId: req.userId } } })
-            .then((brew) => {
-              res.status(200).json({ message: 'User vote successfully recorded.' })
-            })
-            .catch((err) => {
-              res.status(500).json({ error: 'Failed to add user vote', err });
-            })
-        }
-      } else {
-        res.json({ error: 'Something failed...' })
-      }
-
-    } else {
-      res.status(404).json({ error: `Coffee Brew of ID ${brewId} not found.` });
-    }
-
-
   }
 
 };
